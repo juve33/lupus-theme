@@ -1,0 +1,22 @@
+:root {
+    --nav-height: 122px;
+    --nav-height-small: 52px;
+
+    --primary-color: #604734;
+    --secondary-color: #363636;
+    --tertiary-color: #e2001a;
+    --accent-color: #fff;
+    --primary-background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --nav-height: 128px;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --nav-height-small: 64px;
+    }
+}
