@@ -1,6 +1,3 @@
-@import url("variables.css");
-@import url("nav.css");
-
 @font-face {
 	font-family: "Futura";
 	src:
@@ -21,8 +18,23 @@
 	box-sizing: inherit;
 }
 
+@media (prefers-reduced-motion) {
+    *,
+	::before,
+	::after {
+		transition: none !important;
+	}
+}
+
 html {
 	text-rendering: optimizeLegibility;
+	font-size: 16px;
+}
+
+@media (min-width: 544px) {
+    html {
+		font-size: 14px;
+	}
 }
 
 html, body {
@@ -31,22 +43,119 @@ html, body {
 }
 
 body {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: var(--default-font);
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #363636;
+	color: var(--secondary-color);
     margin: 0;
 
-    background-color: #aaa;
-	min-height: 200vh;
+	background: fixed var(--primary-background-color) !important;
+
+	max-height: calc(100vh - var(--wordpress-support-bar));
+	max-height: calc(100dvh - var(--wordpress-support-bar));
+	scroll-snap-type: y proximity;
+}
+
+@supports not (scroll-snap-type: y proximity) {
+    body {
+        max-height: unset;
+    }
 }
 
 main {
-	margin-top: var(--nav-height);
-	min-height: calc(100vh - var(--nav-height));
+	margin-top: var(--nav-height-small);
+	padding-bottom: var(--standard-margin);
+	min-height: calc(var(--nav-height-big) - var(--nav-height-small));
 }
 
 a, area, button, [role="button"], input, label, select, summary, textarea {
 	-ms-touch-action: manipulation;
 	touch-action: manipulation;
+}
+
+#wpadminbar {
+	position: fixed;
+}
+
+main>.wrapper>* {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--standard-margin) .714285rem;
+}
+
+.wrapper>:first-child {
+    padding-top: calc(var(--nav-height-big) - var(--nav-height-small));
+
+	scroll-snap-align: start;
+	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
+}
+
+.wrapper>header.full-sized:first-child+* {
+	scroll-snap-align: start;
+	scroll-margin: var(--nav-height-small) 0 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    letter-spacing: -0.03em;
+	text-transform: uppercase;
+	font-family: var(--emphasized-font);
+}
+
+h2,
+h3,
+h4,
+h5 {
+    position: relative;
+    margin-bottom: .6em;
+
+	color: var(--primary-color) !important;
+    line-height: 1.5;
+}
+
+h2 {
+	font-size: 2.5rem !important;
+}
+
+h3 {
+	font-size: 2rem !important;
+}
+
+h4 {
+	font-size: 1.5rem !important;
+}
+
+h5 {
+	font-size: 1.25rem !important;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: underline;
+}
+
+hr {
+	width: 90% !important;
+	height: 1px !important;
+	margin: var(--standard-margin) auto;
+	border: none !important;
+
+	background: var(--tertiary-color) !important;
+}
+
+footer {
+	scroll-snap-align: end;
+}
+mark {
+	background-color: transparent !important;
 }
