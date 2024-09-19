@@ -1,0 +1,520 @@
+/* BACKGROUND MESSAGE */
+
+.background-message-field {
+    display: none;
+}
+
+.background-message__container__container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: grid;
+    align-content: space-between;
+
+    overflow: hidden;
+
+    font-family: var(--emphasized-font);
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--secondary-color) !important;
+    opacity: 15%;
+
+    user-select: none;
+
+    z-index: -1 !important;
+}
+
+@media (prefers-reduced-motion) {
+    .background-message__container__container {
+        justify-content: center;
+    }
+
+    .background-message__line__inner {
+        position: relative;
+    }
+
+    .background-message__container:nth-of-type(odd) .background-message__line:nth-of-type(odd) .background-message__line__inner,
+    .background-message__container:nth-of-type(even) .background-message__line:nth-of-type(even) .background-message__line__inner {
+        transform: translate(-50%);
+    }
+}
+
+@media (min-width: 992px) {
+    .background-message__container__container {
+        font-size: 4rem;
+        opacity: 10%;
+    }
+}
+
+.secondary-color-scheme .background-message__container__container {
+    z-index: 0 !important;
+}
+
+.background-message__line {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.background-message__line__inner {
+    width: fit-content;
+    text-wrap: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .background-message__container:nth-of-type(odd) .background-message__line:nth-of-type(even),
+    .background-message__container:nth-of-type(even) .background-message__line:nth-of-type(odd) {
+        --animation-speed-factor: .5;
+    }
+
+    .background-message__line__inner {
+        animation: message-scroll calc(120s / var(--animation-speed-factor, 1)) linear infinite var(--animation-direction, forwards);
+    }
+
+    @supports (animation-timeline: view(disabled)) {
+        .background-message__line__inner {
+            transform: translate(0);
+            transform-origin: left;
+            animation: message-scroll 1ms linear var(--animation-direction, forwards);
+            animation-timeline: view();
+        }
+    }
+}
+
+@keyframes message-scroll {
+    to {
+        transform: translate(-100%);
+    }
+}      
+
+
+
+/* FULL SIZED */
+
+.full-sized {
+    position: relative;
+    min-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar) - 2 * var(--standard-margin));
+    min-height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar) - 2 * var(--standard-margin));
+    overflow: hidden;
+
+    scroll-snap-align: start;
+	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
+}
+
+.full-sized.has-cover {
+    min-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar));
+    min-height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar));
+}
+
+.full-sized .wp-block-group__inner-container {
+    align-content: center;
+}
+
+.full-sized .wp-block-media-text {
+    padding: 0;
+}
+
+
+
+/* FULL WIDTH */
+/* HAS COVER */
+
+.full-width,
+.has-cover {
+    position: relative;
+    margin: 0 !important;
+    max-width: unset !important;
+    width: 100%;
+
+    scroll-margin: var(--nav-height-small) 0 0 !important;
+}
+
+.full-width {
+    padding: var(--standard-margin) 0 !important;
+}
+
+.has-cover {
+    color: var(--accent-color) !important;
+    padding: 0 !important;
+}
+
+.wrapper>.full-width>.wp-block-group__inner-container {
+    position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 .714285rem;
+}
+
+.has-cover+.has-cover {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.has-cover h2,
+.has-cover h3,
+.has-cover h4,
+.has-cover h5 {
+    color: inherit !important;
+}
+
+/* SUBTITLE */
+
+.subtitle {
+    position: relative;
+    margin-bottom: .6em;
+    
+    font-family: var(--emphasized-font);
+    font-size: inherit !important;
+    line-height: 1.5;
+
+    color: var(--tertiary-color);
+}
+
+.pride .subtitle,
+.trans-pride .subtitle {
+    color: inherit;
+}
+
+.has-cover h2:not(.subtitle+h2),
+.has-cover h3:not(.subtitle+h3),
+.has-cover h4:not(.subtitle+h4),
+.has-cover h5:not(.subtitle+h5),
+.subtitle {
+    width: 60%;
+    min-height: 1.5em;
+
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .has-cover h2:not(.subtitle+h2),
+    .has-cover h3:not(.subtitle+h3),
+    .has-cover h4:not(.subtitle+h4),
+    .has-cover h5:not(.subtitle+h5),
+    .subtitle {
+        width: 67%;
+    }
+}
+
+@media (max-width: 600px) {
+    .has-cover h2:not(.subtitle+h2),
+    .has-cover h3:not(.subtitle+h3),
+    .has-cover h4:not(.subtitle+h4),
+    .has-cover h5:not(.subtitle+h5),
+    .subtitle {
+        width: unset;
+    }
+}
+
+.has-cover h2:not(.subtitle+h2)::after,
+.has-cover h3:not(.subtitle+h3)::after,
+.has-cover h4:not(.subtitle+h4)::after,
+.has-cover h5:not(.subtitle+h5)::after,
+.subtitle::after {
+    content: '';
+
+    position: absolute;
+    bottom: .45em;
+    height: .6em;
+    width: 100%;
+    margin-left: .6em;
+
+    background: var(--tertiary-color) !important;
+}
+
+@media (max-width: 600px) {
+    .has-cover h2:not(.subtitle+h2)::after,
+    .has-cover h3:not(.subtitle+h3)::after,
+    .has-cover h4:not(.subtitle+h4)::after,
+    .has-cover h5:not(.subtitle+h5)::after,
+    .subtitle::after {
+        content: unset;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .has-cover h2:not(.subtitle+h2):hover::after,
+    .has-cover h3:not(.subtitle+h3):hover::after,
+    .has-cover h4:not(.subtitle+h4):hover::after,
+    .has-cover h5:not(.subtitle+h5):hover::after,
+    :has(.wp-block-heading:hover)>.subtitle::after {
+        animation: subtitle-after .4s ease-in-out;
+    }
+}
+
+@keyframes subtitle-after {
+    from {
+        margin-left: .6em;
+    }
+
+    25% {
+        margin-left: calc(10% + .6em);
+    }
+
+    50% {
+        margin-left: .6em;
+    }
+
+    75% {
+        margin-left: calc(5% + .6em);
+    }
+
+    to {
+        margin-left: .6em;
+    }
+}
+
+.has-cover .wp-block-cover {
+    height: inherit;
+    min-height: inherit !important;
+    padding: 0 !important;
+}
+
+.has-cover .wp-block-cover__background,
+header .wp-block-cover__background {
+    opacity: 1 !important;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)) !important;
+    background-attachment: fixed !important;
+}
+
+.has-cover .wp-block-cover__image-background,
+header .wp-block-cover__image-background {
+    background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small))) !important;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .has-cover .wp-block-cover__image-background,
+    header .wp-block-cover__image-background {
+        background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small)) / 2) !important;
+    }
+}
+
+
+
+/* LOGO BACKGROUND */
+
+.logo-background {
+    position: relative;
+}
+
+.logo-background::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 300px no-repeat var(--logo-src) !important;
+    filter: grayscale(1);
+    opacity: 15%;
+}
+
+@media (min-width: 992px) {
+    .logo-background::after {
+        background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 500px no-repeat var(--logo-src) !important;
+        opacity: 10%;
+    }
+}
+
+.logo-background>* {
+    z-index: 1;
+}
+
+
+
+/* PHOTO CREDIT */
+
+.photo-credit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .125em .5em !important;
+    margin: 0;
+
+    color: var(--accent-color) !important;
+    font-size: 1rem !important;
+    
+    backdrop-filter: blur(.5rem);
+
+    z-index: 1;
+}
+
+@supports not (backdrop-filter: blur(.5rem)) {
+    .photo-credit {
+        background-color: color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
+    }
+}
+
+@supports not ((backdrop-filter: blur(.5rem)) or (background-color: color-mix(in srgb, var(--primary-color) 60%, transparent))) {
+    .photo-credit {
+        background-color: var(--primary-color) !important;
+    }
+}
+
+.photo-credit a {
+    text-decoration: none;
+}
+
+.wp-block-media-text+.photo-credit {
+    left: 0;
+    right: unset;
+    bottom: .6em;
+}
+
+.wp-block-media-text.has-media-on-the-right+.photo-credit {
+    left: unset;
+    right: 0;
+}
+
+@media (max-width: 600px) {
+    .wp-block-media-text+.photo-credit {
+        top: 0;
+        bottom: unset;
+        left: 0 !important;
+        right: unset !important;
+    }
+
+    .full-sized .wp-block-media-text+.photo-credit {
+        left: 0 !important;
+    }
+}
+
+
+
+/* SCROLL BAR */
+
+.scroll-bar {
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0;
+    width: 100%;
+    max-width: unset !important;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.secondary-color-scheme+.scroll-bar {
+    background: fixed var(--primary-color);
+}
+
+.secondary-color-scheme+.scroll-bar::before,
+.scroll-bar::after {
+    content: '';
+
+    position: absolute;
+    height: .6em;
+}
+
+.secondary-color-scheme+.scroll-bar::before {
+    top: 0;
+
+    background: var(--primary-background-color);
+}
+
+.scroll-bar::after {
+    bottom: 0;
+
+    background: var(--tertiary-color);
+}
+
+.scroll-bar+p {
+    display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view(block var(--nav-height-small) 0)) {
+        .scroll-bar {
+            height: .6em;
+
+            overflow: initial;
+        }
+
+        .secondary-color-scheme+.scroll-bar {
+            height: 1.8em;
+        }
+
+        .scroll-bar::before,
+        .scroll-bar::after {
+            left: 0;
+            right: 100%;
+
+            animation: scroll-bar-left 1ms linear forwards;
+            animation-timeline: view(block var(--nav-height-small) 0);
+        }
+
+        .scroll-bar::before,
+        .scroll-bar:nth-of-type(even)::after {
+            left: unset;
+            right: 0;
+
+            animation-name: scroll-bar-right;
+        }
+
+        .scroll-bar:nth-of-type(even)::before {
+            left: 0;
+            right: unset;
+
+            animation-name: scroll-bar-left;
+        }
+    }
+}
+
+@keyframes scroll-bar-left {
+    from {
+        left: 0;
+        right: 100%;
+    }
+
+    50% {
+        left: 0;
+        right: 0;
+    }
+
+    to {
+        left: 100%;
+        right: 0;
+    }
+}
+
+@keyframes scroll-bar-right {
+    from {
+        left: 100%;
+        right: 0;
+    }
+
+    50% {
+        left: 0;
+        right: 0;
+    }
+
+    to {
+        left: 0;
+        right: 100%;
+    }
+}
+
+
+
+/* SECONDARY COLOR SCHEME */
+
+.secondary-color-scheme,
+.secondary-color-scheme * {
+    color: var(--accent-color) !important;
+}
+
+.secondary-color-scheme {
+    background: var(--primary-color) !important;
+}
+
+.secondary-color-scheme > * {
+    z-index: 1;
+}
