@@ -413,7 +413,7 @@ header .wp-block-cover__image-background {
     transform-style: preserve-3d;
     transform: perspective(100vw) translateX(calc(.5 * var(--left))) translateZ(-40rem) rotateX(var(--angle));
 
-    background-color: #050;
+    background-color: #336F1A;
     opacity: 1;
 
     z-index: -1;
@@ -427,6 +427,12 @@ header .wp-block-cover__image-background {
         --size-factor: 7;
 
         top: calc(.9 * (100% - (.5 * var(--size-factor) * var(--width) / 3)));
+    }
+}
+
+@media (min-width: 992px) {
+    .pitch {
+        background-color: #050;
     }
 }
 
