@@ -321,6 +321,9 @@ function lupustheme_custom_css_properties() {
 
 	}
 
+    echo '--hoop-src: url(' . get_template_directory_uri() . '/assets/images/hoop.svg); ';
+    echo '--grass-src: url(' . get_template_directory_uri() . '/assets/images/grass.svg); ';
+
     echo '}</style>';
 
 }

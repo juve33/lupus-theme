@@ -295,6 +295,275 @@ header .wp-block-cover__image-background {
 
 
 
+/* HORIZONTAL */
+
+.horizontal {
+    display: block;
+    position: relative;
+    
+    margin: 0 !important;
+    padding: 0 !important;
+    height: calc(var(--number-of-items) * var(--width) - var(--nav-height-small));
+    max-width: unset !important;
+    
+    scroll-snap-align: start end;
+	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
+}
+
+.horizontal>.wp-block-group__inner-container {
+    box-sizing: border-box;
+	width: 100%;
+    height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar));
+    height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar));
+	margin-top: 0;
+	position: sticky;
+	top: var(--nav-height-small);
+
+    overflow: hidden;
+}
+
+.horizontal>.wp-block-group__inner-container>.wp-block-group {
+    box-sizing: border-box;
+	height: 100%;
+	display: flex;
+    will-change: transform;
+    transform-style: preserve-3d;
+    transform: translate3d(calc((var(--number-of-items) - 1) * var(--left)), 0px, 0px);
+    gap: 0;
+}
+
+.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group {
+	flex: none;
+	width: var(--width);
+	max-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar));
+    max-height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar));
+	display: block;
+    padding-block: var(--standard-margin);
+
+    overflow: hidden;
+}
+
+.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group>.wp-block-group__inner-container {
+    max-width: 1200px;
+    max-height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar) - 2 * var(--standard-margin));
+	margin: 0 auto;
+	padding-inline: .714285rem;
+}
+
+.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group>.wp-block-group__inner-container * {
+    max-height: inherit;
+}
+
+.horizontal>.wp-block-group__inner-container>.wp-block-group .photo-credit {
+    left: .714285rem !important;
+}
+
+.horizontal .wp-block-media-text__content {
+    padding: 1rem 1.5rem !important;
+
+    backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%);
+}
+
+@supports not (backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%)) {
+    .horizontal .wp-block-media-text__content,
+    .horizontal .wp-block-media-text__content * {
+        color: var(--accent-color) !important;
+    }
+
+    .horizontal .wp-block-media-text__content {
+        background-color: color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
+    }
+}
+
+@supports not ((backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%)) or (background-color: color-mix(in srgb, var(--primary-color) 60%, transparent))) {
+    .horizontal .wp-block-media-text__content {
+        background-color: var(--primary-color) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .horizontal .wp-block-media-text__content {
+        padding: 1rem !important;
+    }
+}
+
+.horizontal .has-cover h2:not(.subtitle + h2):hover::after,
+.horizontal .has-cover h3:not(.subtitle + h3):hover::after,
+.horizontal .has-cover h4:not(.subtitle + h4):hover::after,
+.horizontal .has-cover h5:not(.subtitle + h5):hover::after,
+.horizontal :has(.wp-block-heading:hover) > .subtitle::after {
+    animation: none;
+}
+
+
+
+/* PITCH */
+
+.pitch {
+    --size-factor: 5;
+    --angle: 67.5deg;
+    
+    --line-width: .5rem;
+
+    position: absolute;
+    top: calc(.5 * (100% - (.5 * var(--size-factor) * var(--width) / 3)));
+    width: calc(var(--size-factor) * var(--width) / 3);
+    height: calc(.5 * var(--size-factor) * var(--width) / 3);
+
+    transform-style: preserve-3d;
+    transform: perspective(100vw) translateX(calc(.5 * var(--left))) translateZ(-40rem) rotateX(var(--angle));
+
+    background-color: #050;
+    opacity: 1;
+
+    z-index: -1;
+
+    /* Anti Aliasing on Firefox */
+    outline: 1px solid transparent;
+}
+
+@media (max-width: 600px) {
+    .pitch {
+        --size-factor: 7;
+
+        top: calc(.9 * (100% - (.5 * var(--size-factor) * var(--width) / 3)));
+    }
+}
+
+.hoops {
+    position: absolute;
+    top: 41.66667%;
+    bottom: 41.66667%;
+    width: calc(100% / 60);
+
+    transform-style: preserve-3d;
+    transform: none;
+}
+
+.hoops:nth-of-type(1) {
+    left: calc(22.5% - 50% / 60);
+}
+
+.hoops:nth-of-type(2) {
+    right: calc(22.5% - 50% / 60);
+}
+
+.hoop {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+
+    transform-origin: center bottom;
+    transform: rotateX(-90deg) rotateY(90deg);
+
+    background: var(--hoop-src) top center no-repeat;
+    background-size: cover;
+
+    /* Anti Aliasing on Firefox */
+    outline: 1px solid transparent;
+}
+
+.hoop:nth-of-type(1) {
+    top: -50%;
+}
+
+.hoop:nth-of-type(2) {
+    top: 0%;
+}
+
+.hoop:nth-of-type(3) {
+    top: 50%;
+}
+
+.hoop-small {
+    transform: rotateX(-90deg) rotateY(90deg) translateY(33.33333%);
+}
+
+.hoop-medium {
+    transform: rotateX(-90deg) rotateY(90deg) translateY(16.66667%);
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    bottom: -5%;
+    width: var(--line-width);
+
+    background-color: #fff;
+    opacity: .25;
+
+    transform: translateZ(calc(.5 * var(--size-factor) * var(--width) / 200));
+
+    /* Anti Aliasing on Firefox */
+    outline: 1px solid transparent;
+}
+
+.line:nth-of-type(3) {
+    left: calc(31.66667% - 50% / 60);
+}
+
+.line:nth-of-type(4) {
+    right: calc(31.66667% - 50% / 60);
+}
+
+.line:nth-of-type(5) {
+    left: calc(50% - 50% / 60);
+}
+
+.grass {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: none;
+    align-content: space-between;
+
+    transform-style: preserve-3d;
+    transform: none;
+}
+
+@media (min-width: 992px) {
+    .grass {
+        display: grid;
+    }
+}
+
+.grass-row {
+    width: 99.75%;
+    height: calc(.5 * var(--size-factor) * var(--width) / 200);
+    margin-left: .25%;
+
+    transform-origin: center bottom;
+    transform: rotateX(-67.5deg);
+
+    background: var(--grass-src) top center;
+}
+
+.grass-row:nth-of-type(5n) {
+    background-position-x: 40%;
+}
+
+.grass-row:nth-of-type(5n+1) {
+    background-position-x: 27%;
+}
+
+.grass-row:nth-of-type(5n+2) {
+    background-position-x: 61%;
+}
+
+.grass-row:nth-of-type(5n+3) {
+    background-position-x: 83%;
+}
+
+.grass-row:nth-of-type(5n+4) {
+    background-position-x: 5%;
+}
+
+
+
 /* LOGO BACKGROUND */
 
 .logo-background {

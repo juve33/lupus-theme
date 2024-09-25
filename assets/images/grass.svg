@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 -2.25 10 2.25"
+  height="100%">
+
+  <defs>
+    <linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#583" />
+      <stop offset="100%" stop-color="#150" />
+    </linearGradient>
+  </defs>
+
+  <path d="M 0,-.000 h 1 l -.369,-1.913 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 1,-.469 h 1 l -.539,-1.520 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 2,-.043 h 1 l -.645,-1.742 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 3,-.285 h 1 l -.462,-1.525 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 4,-.105 h 1 l -.557,-1.838 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 5,-.343 h 1 l -.431,-1.666 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 6,-.064 h 1 l -.405,-1.996 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 7,-.173 h 1 l -.487,-1.684 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 8,-.461 h 1 l -.524,-1.757 z" stroke="none" fill="url(#Gradient)" />
+  <path d="M 9,-.237 h 1 l -.352,-1.527 z" stroke="none" fill="url(#Gradient)" />
+</svg>
