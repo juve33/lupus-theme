@@ -446,6 +446,11 @@ function lupustheme_register_pattern_categories() {
 		'label'       => __( 'Content: Empty Sections', 'lupus' ),
 		'description' => __( 'Sections including only a title, subtitle and a paragraph', 'lupus' )
 	) );
+
+    register_block_pattern_category( 'lupus/horizontal-sections', array( 
+		'label'       => __( 'Special: Horizontal Scroll Sections', 'lupus' ),
+		'description' => __( 'Sections that scroll horizontally', 'lupus' )
+	) );
 }
 
 add_action( 'init', 'lupustheme_register_pattern_categories' );
