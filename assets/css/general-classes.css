@@ -585,14 +585,16 @@ header .wp-block-cover__image-background {
     left: 0;
     right: 0;
 
-    background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 300px no-repeat var(--logo-src) !important;
+    background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 300px no-repeat !important;
+    background-image: var(--alternative-logo-src, var(--logo-src)) !important;
     filter: grayscale(1);
     opacity: 15%;
 }
 
 @media (min-width: 992px) {
     .logo-background::after {
-        background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 500px no-repeat var(--logo-src) !important;
+        background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 500px no-repeat !important;
+        background-image: var(--alternative-logo-src, var(--logo-src)) !important;
         opacity: 10%;
     }
 }
