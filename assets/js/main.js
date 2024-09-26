@@ -15,13 +15,38 @@ function nav_stickyness(condition) {
 $(document).ready(function() {
 	nav_stickyness(($(this).scrollTop() > 128) || ($('body').scrollTop() > 128));
 
-	$(window).on('scroll', function() {
-		nav_stickyness($(this).scrollTop() > 128);
-	});
+	if ($('.horizontal').length > 0) {
+		let numberOfItems = $('.horizontal > .wp-block-group__inner-container > .wp-block-group').children().length;
 
-	$('body').on('scroll', function() {
-		nav_stickyness($(this).scrollTop() > 128);
-	});
+		$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
+		$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());
+
+		$(window).on('resize', function() {
+			$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
+			$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());
+		});
+
+		horizontalScroll();
+
+		$(window).on('scroll', function() {
+			nav_stickyness($(this).scrollTop() > 128);
+			horizontalScroll();
+		});
+
+		$('body').on('scroll', function() {
+			nav_stickyness($(this).scrollTop() > 128);
+			horizontalScroll();
+		});
+	}
+	else {
+		$(window).on('scroll', function() {
+			nav_stickyness($(this).scrollTop() > 128);
+		});
+	
+		$('body').on('scroll', function() {
+			nav_stickyness($(this).scrollTop() > 128);
+		});
+	}
 });
 
 
