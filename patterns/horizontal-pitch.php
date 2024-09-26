@@ -87,71 +87,11 @@
         <div class="line"></div>
         <div class="line"></div>
         <div class="grass">
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
-            <div class="grass-row"></div>
+            <?php
+                for ($x = 1; $x <= 65; $x++) {
+                    echo '<div class="grass-row"></div>';
+                }
+            ?>
         </div>
     </div>
     <!-- /wp:html -->

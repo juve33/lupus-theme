@@ -310,6 +310,25 @@ header .wp-block-cover__image-background {
 	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
 }
 
+.horizontal~.horizontal {
+    display: flex;
+    height: auto;
+    justify-content: center;
+}
+
+.horizontal~.horizontal::before {
+    content: "Error caused by having multiple horizontal scroll sections on the same page; please don't use this pattern more than once per page.";
+
+    margin: auto !important;
+    padding: var(--standard-margin) .714285rem !important;
+    width: 100%;
+    max-width: 1200px !important;
+}
+
+.horizontal~.horizontal * {
+    display: none !important;
+}
+
 .horizontal>.wp-block-group__inner-container {
     box-sizing: border-box;
 	width: 100%;

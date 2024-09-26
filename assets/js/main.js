@@ -31,7 +31,7 @@ $(document).ready(function() {
 	nav_stickyness(($(this).scrollTop() > 128) || ($('body').scrollTop() > 128));
 
 	if ($('.horizontal').length > 0) {
-		let numberOfItems = $('.horizontal > .wp-block-group__inner-container > .wp-block-group').children().length;
+		const numberOfItems = $('.horizontal > .wp-block-group__inner-container > .wp-block-group').first().children().length;
 
 		$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
 		$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());

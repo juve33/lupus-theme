@@ -1,13 +1,13 @@
 <?php
 /**
- * Title: Horizontal Scroll Section
- * Slug: lupus/horizontal
- * Categories: lupus/horizontal-sections, lupus/image-sections, lupus/standard-colors-sections
- * Description: Section that scrolls horizontally
+ * Title: Horizontal Scroll Section (alternative Colors)
+ * Slug: lupus/horizontal-alternative
+ * Categories: lupus/horizontal-sections, lupus/image-sections, lupus/alternative-colors-sections
+ * Description: Section that scrolls horizontally in alternative colors
  */
 ?>
-<!-- wp:group {"tagName":"section","className":"horizontal","layout":{"type":"constrained"}} -->
-<section class="wp-block-group horizontal">
+<!-- wp:group {"tagName":"section","className":"horizontal secondary-color-scheme","layout":{"type":"constrained"}} -->
+<section class="wp-block-group horizontal secondary-color-scheme">
     <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
     <div class="wp-block-group">
         <!-- wp:group {"layout":{"type":"constrained"}} -->
