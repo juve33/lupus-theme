@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="-5 0 10 30"
+  height="100%">
+
+  <path d="M 0,9.1 V 30" stroke="#fff" stroke-width="1" fill="none" />
+  <path d="
+    M 0,0
+    a 5,5 0 1 0 0,10
+    v -1
+    A 3,3 0 0 1 0,1
+    A 3,3 0 0 1 0,9
+    v 1
+    a 5,5 0 1 0 0,-10
+    z" stroke="none" fill="#fff"
+  />
+</svg>

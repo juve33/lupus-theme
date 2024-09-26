@@ -25,6 +25,25 @@ function lupustheme_empty_navigation() {
 function lupustheme_customize_register($wp_customize) {
 
     $wp_customize->add_setting(
+        'alternative_logo',
+        array()
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Media_Control(
+            $wp_customize,
+            'alternative_logo',
+            array(
+                'label' => 'Alternative Logo',
+                'description' => 'Logo that replaces the main logo in sections with a logo as background',
+                'section' => 'title_tagline',
+                'settings' => 'alternative_logo',
+            )
+        )
+    );
+
+
+
+    $wp_customize->add_setting(
         'page_title_seperator',
         array(
             'default' => "-"
@@ -321,6 +340,16 @@ function lupustheme_custom_css_properties() {
 
 	}
 
+    $alternative_custom_logo_id = get_theme_mod('alternative_logo');
+    $alternative_logo = wp_get_attachment_image_src($alternative_custom_logo_id, 500);
+
+    if ($alternative_logo) {
+        echo '--alternative-logo-src: url(' . $alternative_logo[0] . '); ';
+    }
+
+    echo '--hoop-src: url(' . get_template_directory_uri() . '/assets/images/hoop.svg); ';
+    echo '--grass-src: url(' . get_template_directory_uri() . '/assets/images/grass.svg); ';
+
     echo '}</style>';
 
 }
@@ -442,6 +471,11 @@ function lupustheme_register_pattern_categories() {
     register_block_pattern_category( 'lupus/empty-sections', array( 
 		'label'       => __( 'Content: Empty Sections', 'lupus' ),
 		'description' => __( 'Sections including only a title, subtitle and a paragraph', 'lupus' )
+	) );
+
+    register_block_pattern_category( 'lupus/horizontal-sections', array( 
+		'label'       => __( 'Special: Horizontal Scroll Sections', 'lupus' ),
+		'description' => __( 'Sections that scroll horizontally', 'lupus' )
 	) );
 }
 

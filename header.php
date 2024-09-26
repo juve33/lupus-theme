@@ -119,7 +119,18 @@
 
 </head> 
 
-<body>
+<body <?php
+		// Checks for pride month
+		if (wp_date('n') == 6) {
+			echo 'class="pride"';
+		}
+		else {
+			// Checks for IDAHOBIT (May 17) and International Transgender Day of Visibility (March 31)
+			if ((wp_date('F j') == 'May 17') || (wp_date('F j') == 'March 31')) {
+				echo 'class="trans-pride"';
+			}
+		}
+	?>>
 
 	<nav>
 		<div class="nav-wrapper">
