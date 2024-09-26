@@ -12,6 +12,21 @@ function nav_stickyness(condition) {
 
 
 
+function horizontalScroll() {
+	let scrollStatePixel = -$('.horizontal').offset().top + $('nav').offset().top + $('nav').outerHeight() - 1;
+
+	let scrollStatePercentage = 100 * scrollStatePixel / ($('.horizontal').outerHeight() - $('.horizontal').attr('itemHeight'));
+
+	if (scrollStatePercentage > 0) {
+		$('.horizontal > .wp-block-group__inner-container').css('--left', '-' + Math.min(scrollStatePercentage, 100) + '%');
+	}
+	else {
+		$('.horizontal > .wp-block-group__inner-container').css('--left', '0%');
+	}
+}
+
+
+
 $(document).ready(function() {
 	nav_stickyness(($(this).scrollTop() > 128) || ($('body').scrollTop() > 128));
 
@@ -136,45 +151,4 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$('[href="#"]').removeAttr("href");
 	$('nav .menu-item-has-children a').not('.sub-menu a').removeAttr("href");
-});
-
-
-
-function horizontalScroll() {
-	let scrollStatePixel = -$('.horizontal').offset().top + $('nav').offset().top + $('nav').outerHeight() - 1;
-
-	let scrollStatePercentage = 100 * scrollStatePixel / ($('.horizontal').outerHeight() - $('.horizontal').attr('itemHeight'));
-
-	if (scrollStatePercentage > 0) {
-		$('.horizontal > .wp-block-group__inner-container').css('--left', '-' + Math.min(scrollStatePercentage, 100) + '%');
-	}
-	else {
-		$('.horizontal > .wp-block-group__inner-container').css('--left', '0%');
-	}
-}
-
-
-
-$(document).ready(function() {
-	if ($('.horizontal').length > 0) {
-		let numberOfItems = $('.horizontal > .wp-block-group__inner-container > .wp-block-group').children().length;
-
-		$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
-		$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());
-
-		$(window).on('resize', function() {
-			$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
-			$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());
-		});
-
-		horizontalScroll();
-
-		$(window).on('scroll', function() {
-			horizontalScroll();
-		});
-
-		$('body').on('scroll', function() {
-			horizontalScroll();
-		});
-	}
 });
