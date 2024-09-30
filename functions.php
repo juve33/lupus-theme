@@ -413,6 +413,7 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'core/post-title',
         'core/quote',
         'core/separator',
+        'core/shortcode',
         'core/site-tagline',
         'core/site-title',
         'core/spacer',
@@ -486,14 +487,22 @@ add_action( 'init', 'lupustheme_register_pattern_categories' );
 function lupustheme_register_styles() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style('lupustheme-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-variables', get_template_directory_uri() . '/assets/css/variables.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-nav', get_template_directory_uri() . '/assets/css/nav.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-general-classes', get_template_directory_uri() . '/assets/css/general-classes.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-patterns', get_template_directory_uri() . '/assets/css/patterns.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-footer', get_template_directory_uri() . '/assets/css/footer.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all');
+    wp_enqueue_style( 'lupustheme-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-variables', get_template_directory_uri() . '/assets/css/variables.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-nav', get_template_directory_uri() . '/assets/css/nav.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-general-classes', get_template_directory_uri() . '/assets/css/general-classes.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-patterns', get_template_directory_uri() . '/assets/css/patterns.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-footer', get_template_directory_uri() . '/assets/css/footer.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all' );
+
+    if ( ! function_exists( 'is_plugin_active' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+    
+    if ( is_plugin_active('google-calendar-events/google-calendar-events.php') ) {
+        wp_enqueue_style( 'lupustheme-simple-calendar', get_template_directory_uri() . '/assets/css/simple-calendar.css', array(), $version, 'all' );
+    }
 
 }
 
@@ -504,8 +513,8 @@ add_action('wp_enqueue_scripts', 'lupustheme_register_styles');
 function lupustheme_register_scripts() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_script('lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true);
-    wp_enqueue_script('lupustheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true);
+    wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true );
+    wp_enqueue_script( 'lupustheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true );
 
 }
 

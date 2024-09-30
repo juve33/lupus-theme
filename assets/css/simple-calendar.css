@@ -1,0 +1,200 @@
+/* ALL */
+
+/* unnecessary high specificity because Simple Calendar makes use of !important too */
+div.wrapper .simcal-nav .simcal-nav-button,
+div.wrapper .simcal-nav .simcal-nav-button:hover {
+    color: var(--primary-color) !important;
+}
+
+.simcal-icon-left::before,
+.simcal-icon-right::before {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+}
+
+.simcal-icon-left::before {
+    content: "\f053 " !important;
+}
+
+.simcal-icon-right::before {
+    content: "\f054 " !important;
+}
+
+.simcal-nav-button:disabled {
+    opacity: .5;
+}
+
+
+
+/* GRID */
+
+.simcal-calendar-grid {
+    border-spacing: .5em .25em;
+}
+
+@media (min-width: 544px) {
+    .simcal-calendar-grid {
+        border-spacing: 1em .5em;
+    }
+}
+
+.simcal-calendar-grid .simcal-week-day {
+    padding: .6em 0 !important;
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color) !important;
+    background: fixed var(--primary-background-color);
+
+    font-family: var(--emphasized-font);
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+    .simcal-calendar-grid .simcal-week-day {
+        padding: .6em 1em !important;
+    }
+}
+
+.simcal-calendar-grid .simcal-day {
+    --height-factor: 2;
+    background: fixed var(--primary-background-color) !important;
+}
+
+@media (min-width: 992px) {
+    .simcal-calendar-grid .simcal-day {
+        --height-factor: 3;
+    }
+}
+
+.simcal-calendar-grid .simcal-day:hover {
+    box-shadow: inset 0px 0px 0px 2px var(--tertiary-color);
+}
+
+.simcal-calendar-grid [class^='simcal-day-']~.simcal-day-void:hover {
+    box-shadow: none;
+}
+
+.trans-pride .simcal-calendar-grid .simcal-day:hover {
+    box-shadow: inset 0px 0px 0px 2px var(--accent-color);
+}
+
+.simcal-calendar-grid .simcal-day>div {
+    min-height: unset !important;
+}
+
+.simcal-calendar-grid .simcal-day>div>[class$='-events'] {
+    min-height: calc(var(--height-factor) * 2.7em) !important;
+}
+
+.simcal-calendar-grid .simcal-today div {
+    border: none !important;
+}
+
+.simcal-calendar-grid .simcal-day-label {
+    padding: .6em 1em !important;
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color) !important;
+    background: fixed var(--primary-background-color) !important;
+
+    font-family: var(--emphasized-font);
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.simcal-calendar-grid .simcal-day:hover .simcal-day-label,
+.simcal-calendar-grid .simcal-today .simcal-day-label {
+    color: var(--accent-color) !important;
+    background: var(--tertiary-color) !important;
+}
+
+.simcal-calendar-grid .simcal-events {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.simcal-calendar-grid .simcal-event:hover {
+    color: var(--tertiary-color);
+}
+
+
+
+/* LIST */
+
+.simcal-calendar-list nav.simcal-calendar-head {
+    position: static;
+
+    border: unset;
+
+    transition: unset;
+
+    z-index: initial;
+}
+
+.simcal-calendar-list .simcal-day-label {
+    border-bottom: none !important;
+}
+
+.simcal-calendar-list .simcal-day-label:first-of-type::before {
+    content: unset;
+}
+
+.simcal-calendar-list .simcal-day-label {
+    margin-block: 1em !important;
+    font-size: 1em !important;
+}
+
+.simcal-calendar-list .simcal-day-label>span {
+    padding: .6em 1em !important;
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color) !important;
+    background: fixed var(--primary-background-color) !important;
+
+    font-family: var(--emphasized-font);
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.simcal-calendar-list .simcal-day-label::before {
+    content: '';
+
+    display: block;
+    width: 90% !important;
+	height: 1px !important;
+	margin: var(--standard-margin) auto;
+	border: none !important;
+
+	background: var(--tertiary-color) !important;
+}
+
+.simcal-calendar-list .simcal-day {
+    margin-inline: 1em !important;
+}
+
+.simcal-calendar-list .simcal-events {
+    margin: 0 !important;
+}
+
+.simcal-calendar-list .simcal-event {
+    margin-bottom: 1em;
+}
+
+.simcal-calendar-list .simcal-event:last-child {
+    margin-bottom: 0;
+}
+
+.simcal-calendar-list .simcal-event-details {
+    font-size: 1em !important;
+}
+
+.simcal-calendar-list .simcal-day p:last-child {
+    margin-bottom: 0;
+}
