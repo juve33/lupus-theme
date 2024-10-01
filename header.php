@@ -49,42 +49,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>
-		<?php
+	<?php
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		
+		if ( !is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+
 			$page_title_seperator = get_theme_mod( 'page_title_seperator' );
 			$page_title = get_bloginfo( 'name' );
 
 			if ( !is_front_page() ) {
+
 				if ( $page_title_seperator ) {
+
 					$page_title = get_the_title() . ' ' . esc_attr( $page_title_seperator ) . ' ' . $page_title;
+
 				}
 				else {
+
 					$page_title = get_the_title() . ' - ' . $page_title;
+
 				}
+
 			}
 
-			echo $page_title;
-		?>
-	</title>
-    <meta name="description" content=
-		"<?php
-			$page_description = '';
+			echo '<title>' . $page_title . '</title>';
 
-			$default_page_description = get_theme_mod( 'default_page_description' );
-			if ( $default_page_description ) {
-				$page_description = esc_attr( $default_page_description );
-			}
-
-			if ( is_front_page() ) {
-				$blog_description = get_bloginfo( "description" );
-				if ( $blog_description ) {
-					$page_description = $blog_description;
-				}
-			}
-
-			echo $page_description;
-		?>"
-	/>   
+		}
+	?> 
 	<meta name="theme-color" content=
 		"<?php
 			$primary_color = get_theme_mod( 'primary_color' );
@@ -95,23 +88,16 @@
 	/>
     <link rel="shortcut icon" href="<?php echo $icon ?>" />
 	<link rel="icon" href="<?php echo $icon ?>" />
-	<meta name="keywords" content="" />
 
-    <meta property="og:title" content=
-		"<?php
-			echo $page_title;
-		?>"
-	/>
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content=
-		"<?php 
-			echo $page_description;
-		?>"
-	>
-    <meta property="og:url" content=
-	"<?php
-		echo get_site_url( null, '', 'https' );
-	?>">
+	<?php
+		if ( !is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+
+			echo '<meta property="og:title" content="' . $page_title . '" />';
+			echo '<meta property="og:type" content="website" />';
+			echo '<meta property="og:url" content="' . get_site_url( null, '', 'https' ) . '" />';
+
+		}
+	?>
 
 	<?php
 		wp_head();

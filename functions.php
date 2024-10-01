@@ -68,27 +68,6 @@ function lupustheme_customize_register($wp_customize) {
 
 
     $wp_customize->add_setting(
-        'default_page_description',
-        array(
-            'default' => "We're a Quadball team!"
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'default_page_description',
-            array(
-                'label' => 'Default Page Description',
-                'description' => 'For Search Engine Optimization (SEO) reasons',
-                'section' => 'title_tagline',
-                'settings' => 'default_page_description',
-            )
-        )
-    );
-
-
-
-    $wp_customize->add_setting(
         'primary_color',
         array(
             'default' => '#604734',
@@ -383,6 +362,7 @@ function lupustheme_footer_widgets_init() {
 		'after_title'   => '</h4>',
 	) );
 }
+
 add_action( 'widgets_init', 'lupustheme_footer_widgets_init' );
 
 
@@ -422,8 +402,33 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
 	);
 
 	return $allowed_block_types;
+
 }
+
 add_filter( 'allowed_block_types_all', 'lupustheme_allowed_block_types', 10, 2 );
+
+
+
+function lupustheme_add_custom_separator ( $currentSeparators ) {
+
+    $addSeparator = [];
+
+	$page_title_seperator = get_theme_mod( 'page_title_seperator' );
+
+    array_push( $addSeparator, esc_attr( $page_title_seperator ) );
+
+    $newSeparators = array_unique( array_merge( $currentSeparators, $addSeparator ));
+    return $newSeparators;
+
+}
+
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+    add_filter( 'wpseo_separator_options', 'lupustheme_add_custom_separator', 10 , 1 );
+}
 
 
 
@@ -500,7 +505,7 @@ function lupustheme_register_styles() {
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
     
-    if ( is_plugin_active('google-calendar-events/google-calendar-events.php') ) {
+    if ( is_plugin_active( 'google-calendar-events/google-calendar-events.php' ) ) {
         wp_enqueue_style( 'lupustheme-simple-calendar', get_template_directory_uri() . '/assets/css/simple-calendar.css', array(), $version, 'all' );
     }
 
