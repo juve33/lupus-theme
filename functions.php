@@ -398,7 +398,10 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'core/site-title',
         'core/spacer',
         'core/table',
-        'core/video'
+        'core/video',
+        'tablepress/table',
+        'yoast/faq-block',
+        'yoast/how-to-block'
 	);
 
 	return $allowed_block_types;
@@ -507,6 +510,14 @@ function lupustheme_register_styles() {
     
     if ( is_plugin_active( 'google-calendar-events/google-calendar-events.php' ) ) {
         wp_enqueue_style( 'lupustheme-simple-calendar', get_template_directory_uri() . '/assets/css/simple-calendar.css', array(), $version, 'all' );
+    }
+
+    if ( is_plugin_active( 'tablepress/tablepress.php' ) ) {
+        wp_enqueue_style( 'lupustheme-tablepress', get_template_directory_uri() . '/assets/css/tablepress.css', array(), $version, 'all' );
+    }
+
+    if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+        wp_enqueue_style( 'lupustheme-yoast', get_template_directory_uri() . '/assets/css/yoast.css', array(), $version, 'all' );
     }
 
 }
