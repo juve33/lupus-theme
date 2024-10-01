@@ -4,6 +4,14 @@
     margin-block: var(--standard-margin);
 }
 
+.wp-block-yoast-faq-block:first-child {
+    margin-top: 0;
+}
+
+.wp-block-yoast-faq-block:last-child {
+    margin-bottom: 0;
+}
+
 .wp-block-yoast-faq-block .schema-faq-section {
     margin-bottom: 1em;
 }
@@ -21,6 +29,14 @@
 
 .wp-block-yoast-how-to-block {
     margin-block: var(--standard-margin);
+}
+
+.wp-block-yoast-how-to-block:first-child {
+    margin-top: 0;
+}
+
+.wp-block-yoast-how-to-block:last-child {
+    margin-bottom: 0;
 }
 
 .wp-block-yoast-how-to-block .schema-how-to-step {
