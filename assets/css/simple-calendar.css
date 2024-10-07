@@ -1,5 +1,13 @@
 /* ALL */
 
+.simcal-calendar {
+    margin-bottom: 1em;
+}
+
+.simcal-calendar:last-child {
+    margin-bottom: 0;
+}
+
 /* unnecessary high specificity because Simple Calendar makes use of !important too */
 div.wrapper .simcal-nav .simcal-nav-button,
 div.wrapper .simcal-nav .simcal-nav-button:hover {
