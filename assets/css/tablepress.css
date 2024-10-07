@@ -1,0 +1,111 @@
+.tablepress {
+    background: fixed var(--primary-background-color);
+}
+
+.tablepress * {
+    background: none !important;
+}
+
+.tablepress thead {
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color);
+    font-family: var(--emphasized-font);
+    text-transform: uppercase;
+}
+
+.tablepress th,
+.tablepress td {
+    padding: .6em 1em !important;
+    color: inherit !important;
+}
+
+.tablepress th:hover,
+.tablepress th[aria-sort] {
+    color: var(--accent-color) !important;
+    background-color: var(--tertiary-color) !important;
+}
+
+.dataTables_length,
+.dataTables_filter {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: .6em;
+    min-height: 2.7em;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+    color: var(--tertiary-color);
+    font-family: var(--emphasized-font);
+    text-transform: uppercase;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+    margin: 0 !important;
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color);
+    font-family: var(--emphasized-font);
+    text-transform: uppercase;
+
+    background: fixed var(--primary-background-color);
+}
+
+.dataTables_length select {
+    padding-block: .6em !important;
+
+    text-align: center;
+}
+
+.dataTables_filter input {
+    margin-left: 1em !important;
+    padding: .6em 1em !important;
+
+    appearance: none !important;
+}
+
+.dataTables_filter input:focus {
+    outline: none;
+
+    color: var(--accent-color);
+    background: fixed var(--tertiary-color);
+}
+
+
+
+.dataTables_paginate {
+    margin: .6em 0 0 !important;
+    padding: 0 calc(1ch + 1em) !important;
+}
+
+.dataTables_paginate .paginate_button {
+    color: inherit !important;
+}
+
+.dataTables_paginate .paginate_button.disabled {
+    opacity: .5;
+}
+
+.dataTables_paginate .previous::before,
+.dataTables_paginate .next::after {
+    color: inherit !important;
+    text-shadow: none !important;
+
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+}
+
+.dataTables_paginate .previous::before {
+    content: "\f053 " !important;
+}
+
+.dataTables_paginate .next::after {
+    content: "\f054 " !important;
+}

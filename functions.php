@@ -68,27 +68,6 @@ function lupustheme_customize_register($wp_customize) {
 
 
     $wp_customize->add_setting(
-        'default_page_description',
-        array(
-            'default' => "We're a Quadball team!"
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'default_page_description',
-            array(
-                'label' => 'Default Page Description',
-                'description' => 'For Search Engine Optimization (SEO) reasons',
-                'section' => 'title_tagline',
-                'settings' => 'default_page_description',
-            )
-        )
-    );
-
-
-
-    $wp_customize->add_setting(
         'primary_color',
         array(
             'default' => '#604734',
@@ -383,6 +362,7 @@ function lupustheme_footer_widgets_init() {
 		'after_title'   => '</h4>',
 	) );
 }
+
 add_action( 'widgets_init', 'lupustheme_footer_widgets_init' );
 
 
@@ -413,16 +393,45 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'core/post-title',
         'core/quote',
         'core/separator',
+        'core/shortcode',
         'core/site-tagline',
         'core/site-title',
         'core/spacer',
         'core/table',
-        'core/video'
+        'core/video',
+        'tablepress/table',
+        'yoast/faq-block',
+        'yoast/how-to-block'
 	);
 
 	return $allowed_block_types;
+
 }
+
 add_filter( 'allowed_block_types_all', 'lupustheme_allowed_block_types', 10, 2 );
+
+
+
+function lupustheme_add_custom_separator ( $currentSeparators ) {
+
+    $addSeparator = [];
+
+	$page_title_seperator = get_theme_mod( 'page_title_seperator' );
+
+    array_push( $addSeparator, esc_attr( $page_title_seperator ) );
+
+    $newSeparators = array_unique( array_merge( $currentSeparators, $addSeparator ));
+    return $newSeparators;
+
+}
+
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+    add_filter( 'wpseo_separator_options', 'lupustheme_add_custom_separator', 10 , 1 );
+}
 
 
 
@@ -486,14 +495,30 @@ add_action( 'init', 'lupustheme_register_pattern_categories' );
 function lupustheme_register_styles() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style('lupustheme-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-variables', get_template_directory_uri() . '/assets/css/variables.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-nav', get_template_directory_uri() . '/assets/css/nav.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-general-classes', get_template_directory_uri() . '/assets/css/general-classes.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-patterns', get_template_directory_uri() . '/assets/css/patterns.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-footer', get_template_directory_uri() . '/assets/css/footer.css', array(), $version, 'all');
-    wp_enqueue_style('lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all');
+    wp_enqueue_style( 'lupustheme-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-variables', get_template_directory_uri() . '/assets/css/variables.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-nav', get_template_directory_uri() . '/assets/css/nav.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-general-classes', get_template_directory_uri() . '/assets/css/general-classes.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-patterns', get_template_directory_uri() . '/assets/css/patterns.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-footer', get_template_directory_uri() . '/assets/css/footer.css', array(), $version, 'all' );
+    wp_enqueue_style( 'lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all' );
+
+    if ( ! function_exists( 'is_plugin_active' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+    
+    if ( is_plugin_active( 'google-calendar-events/google-calendar-events.php' ) ) {
+        wp_enqueue_style( 'lupustheme-simple-calendar', get_template_directory_uri() . '/assets/css/simple-calendar.css', array(), $version, 'all' );
+    }
+
+    if ( is_plugin_active( 'tablepress/tablepress.php' ) ) {
+        wp_enqueue_style( 'lupustheme-tablepress', get_template_directory_uri() . '/assets/css/tablepress.css', array(), $version, 'all' );
+    }
+
+    if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+        wp_enqueue_style( 'lupustheme-yoast', get_template_directory_uri() . '/assets/css/yoast.css', array(), $version, 'all' );
+    }
 
 }
 
@@ -504,8 +529,8 @@ add_action('wp_enqueue_scripts', 'lupustheme_register_styles');
 function lupustheme_register_scripts() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_script('lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true);
-    wp_enqueue_script('lupustheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true);
+    wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true );
+    wp_enqueue_script( 'lupustheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true );
 
 }
 
