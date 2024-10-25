@@ -1,0 +1,143 @@
+/* ITALICS */
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-Bold.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Bold.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-Regular.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Regular.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 400 500;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-Light.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Light.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 100 300;
+}
+
+
+
+/* STRAIGHT */
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-StraightBold.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-StraightBold.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-StraightRegular.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-StraightRegular.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 400 500;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli';
+	src:
+        url('../fonts/FC_SANS_PAULI-StraightLight.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-StraightLight.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 100 300;
+}
+
+
+
+/* COOPERATIVE */
+
+@font-face{
+	font-family: 'FC Sans Pauli Cooperative';
+	src:
+        url('../fonts/FC_SANS_PAULI-Cooperative.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Cooperative.woff') format('woff');
+        
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Cooperative';
+	src:
+        url('../fonts/FC_SANS_PAULI-Cooperative.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Cooperative.woff') format('woff');
+        
+	font-display: swap;
+	font-style: italic;
+}
+
+
+
+/* STENCIL */
+
+@font-face{
+	font-family: 'FC Sans Pauli Stencil';
+	src:
+        url('../fonts/FC_SANS_PAULI-Stencil.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Stencil.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Stencil';
+	src:
+        url('../fonts/FC_SANS_PAULI-Stencil.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Stencil.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+}
+
+
+
+/* TAPE */
+
+@font-face{
+	font-family: 'FC Sans Pauli Tape';
+	src:
+        url('../fonts/FC_SANS_PAULI-Tape.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Tape.woff') format('woff');
+        
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Tape';
+	src:
+        url('../fonts/FC_SANS_PAULI-Tape.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Tape.woff') format('woff');
+        
+	font-display: swap;
+	font-style: italic;
+}

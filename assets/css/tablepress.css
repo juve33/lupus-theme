@@ -6,14 +6,23 @@
     background: none !important;
 }
 
+.tablepress *::before,
+.tablepress *::after,
+.dataTables_paginate *::before,
+.dataTables_paginate *::after {
+    font-style: normal;
+}
+
 .tablepress thead {
     border: 2px solid currentColor;
     border-color: var(--tertiary-color);
     border-radius: 0;
 
     color: var(--tertiary-color);
-    font-family: var(--emphasized-font);
-    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
 }
 
 .tablepress th,
@@ -40,8 +49,10 @@
 .dataTables_length label,
 .dataTables_filter label {
     color: var(--tertiary-color);
-    font-family: var(--emphasized-font);
-    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
 }
 
 .dataTables_length select,
@@ -52,8 +63,10 @@
     border-radius: 0;
 
     color: var(--tertiary-color);
-    font-family: var(--emphasized-font);
-    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
 
     background: fixed var(--primary-background-color);
 }

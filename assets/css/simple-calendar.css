@@ -55,9 +55,11 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     color: var(--tertiary-color) !important;
     background: fixed var(--primary-background-color);
 
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: var(--emphasized-texttransform);
 }
 
 @media (min-width: 992px) {
@@ -110,9 +112,11 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     color: var(--tertiary-color) !important;
     background: fixed var(--primary-background-color) !important;
 
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: var(--emphasized-texttransform);
 }
 
 .simcal-calendar-grid .simcal-day:hover .simcal-day-label,
@@ -166,9 +170,11 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     color: var(--tertiary-color) !important;
     background: fixed var(--primary-background-color) !important;
 
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: bold;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: var(--emphasized-texttransform);
 }
 
 .simcal-calendar-list .simcal-day-label::before {

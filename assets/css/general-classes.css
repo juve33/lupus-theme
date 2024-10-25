@@ -16,7 +16,9 @@
 
     overflow: hidden;
 
-    font-family: var(--emphasized-font);
+    font-family: var(--details-font);
+    font-style: italic;
+    font-weight: bold;
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
@@ -167,7 +169,10 @@
     position: relative;
     margin-bottom: .6em;
     
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-weight: normal;
+    text-transform: var(--emphasized-texttransform);
     font-size: inherit !important;
     line-height: 1.5;
 
@@ -640,6 +645,7 @@ header .wp-block-cover__image-background {
 
     color: var(--accent-color) !important;
     font-size: 1rem !important;
+    font-weight: 300;
     
     backdrop-filter: blur(.5rem);
 
@@ -659,6 +665,7 @@ header .wp-block-cover__image-background {
 }
 
 .photo-credit a {
+    font-style: inherit;
     text-decoration: none;
 }
 

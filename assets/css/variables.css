@@ -12,8 +12,31 @@
 
     --wordpress-support-bar: 0px;
 
-    --default-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    --emphasized-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+    --emphasized-texttransform: uppercase;
+    --emphasized-letterspacing: -0.03em;
+
+
+    --header-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --header-texttransform: uppercase;
+
+    --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --details-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    /*
+    --emphasized-texttransform: none;
+    --emphasized-letterspacing: 0;
+
+
+    --header-font: "FC Sans Pauli Stencil","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --header-texttransform: uppercase;
+
+    --main-font: "FC Sans Pauli","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --secondary-font: "FC Sans Pauli","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --details-font: "FC Sans Pauli Tape","Helvetica Neue",Helvetica,Arial,sans-serif;
+    */
 }
 
 .customize-support {
