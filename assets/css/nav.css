@@ -193,7 +193,6 @@ nav .socialmedia a[href=""] {
 .navigation li,
 .hamburger-menu li {
 	font-family: var(--secondary-font);
-	font-style: italic;
 	font-weight: bold;
 	text-transform: var(--header-texttransform);
 }

@@ -56,7 +56,6 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     background: fixed var(--primary-background-color);
 
     font-family: var(--secondary-font);
-    font-style: italic;
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
@@ -113,7 +112,6 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     background: fixed var(--primary-background-color) !important;
 
     font-family: var(--secondary-font);
-    font-style: italic;
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
@@ -171,7 +169,6 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     background: fixed var(--primary-background-color) !important;
 
     font-family: var(--secondary-font);
-    font-style: italic;
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);

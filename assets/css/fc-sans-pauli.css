@@ -33,8 +33,6 @@
     font-weight: 100 300;
 }
 
-
-
 /* STRAIGHT */
 
 @font-face{
@@ -72,6 +70,76 @@
 
 
 
+/* ITALICS ONLY */
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Bold.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Bold.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Bold.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Bold.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Regular.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Regular.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 400 500;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Regular.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Regular.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 400 500;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Light.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Light.woff') format('woff');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 100 300;
+}
+
+@font-face{
+	font-family: 'FC Sans Pauli Italics';
+	src:
+        url('../fonts/FC_SANS_PAULI-Light.woff2') format('woff2'),
+		url('../fonts/FC_SANS_PAULI-Light.woff') format('woff');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 100 300;
+}
+
+
+
 /* COOPERATIVE */
 
 @font-face{
@@ -82,6 +150,7 @@
         
 	font-display: swap;
 	font-style: normal;
+	font-weight: 1 1000;
 }
 
 @font-face{
@@ -92,6 +161,7 @@
         
 	font-display: swap;
 	font-style: italic;
+	font-weight: 1 1000;
 }
 
 
@@ -106,6 +176,7 @@
         
 	font-display: swap;
     font-style: normal;
+	font-weight: 1 1000;
 }
 
 @font-face{
@@ -116,6 +187,7 @@
         
 	font-display: swap;
     font-style: italic;
+	font-weight: 1 1000;
 }
 
 
@@ -130,6 +202,7 @@
         
 	font-display: swap;
 	font-style: normal;
+	font-weight: 1 1000;
 }
 
 @font-face{
@@ -140,4 +213,5 @@
         
 	font-display: swap;
 	font-style: italic;
+	font-weight: 1 1000;
 }

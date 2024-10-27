@@ -15,9 +15,9 @@
     background: fixed var(--primary-background-color);
 
     font-family: var(--secondary-font);
-    font-style: italic;
-    font-weight: bold;
     font-size: 1em;
+    font-style: inherit;
+    font-weight: bold;
     text-transform: var(--emphasized-texttransform);
 
     user-select: none;
@@ -102,7 +102,6 @@
     text-align: center;
 
     font-family: var(--secondary-font);
-    font-style: italic;
     font-weight: bold;
     text-transform: var(--emphasized-texttransform);
 
@@ -419,6 +418,7 @@ figure.wp-block-image {
 
     color: var(--accent-color) !important;
     font-size: 1rem !important;
+    font-weight: 300;
     
     backdrop-filter: blur(.5rem);
 }
@@ -581,8 +581,6 @@ ul.wp-block-list li::marker {
     position: relative;
 
     font-family: var(--secondary-font);
-    font-style: italic;
-    font-weight: bold;
     font-size: 1.25rem;
     color: var(--primary-color);
     vertical-align: middle;
