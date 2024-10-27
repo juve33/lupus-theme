@@ -8,7 +8,7 @@ footer {
 }
 
 .footer-wrapper {
-    max-width: calc(1200px - .714285rem);
+    max-width: calc(1200px - 2 * .714285rem);
     margin: 0 auto;
     padding: 0 .714285rem;
 }
