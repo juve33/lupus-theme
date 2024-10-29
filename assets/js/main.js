@@ -18,10 +18,10 @@ function horizontalScroll() {
 	let scrollStatePercentage = 100 * scrollStatePixel / ($('.horizontal').outerHeight() - $('.horizontal').attr('itemHeight'));
 
 	if (scrollStatePercentage > 0) {
-		$('.horizontal > .wp-block-group__inner-container').css('--left', '-' + Math.min(scrollStatePercentage, 100) + '%');
+		$('.horizontal').css('--left', '-' + Math.min(scrollStatePercentage, 100) + '%');
 	}
 	else {
-		$('.horizontal > .wp-block-group__inner-container').css('--left', '0%');
+		$('.horizontal').css('--left', '0%');
 	}
 }
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
 	nav_stickyness(($(this).scrollTop() > 128) || ($('body').scrollTop() > 128));
 
 	if ($('.horizontal').length > 0) {
-		const numberOfItems = $('.horizontal > .wp-block-group__inner-container > .wp-block-group').first().children().length;
+		const numberOfItems = $('.horizontal > .wp-block-group').first().children().length;
 
 		$('.horizontal').css({'--number-of-items': numberOfItems, '--width': $('.horizontal').outerWidth() + 'px'});
 		$('.horizontal').attr('itemHeight', $('.horizontal').children().outerHeight());

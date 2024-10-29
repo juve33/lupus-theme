@@ -141,7 +141,7 @@ a {
 }
 
 s {
-    text-decoration: line-through var(--tertiary-color);
+    text-decoration: line-through var(--tertiary-color) .15em;
 }
 
 hr {
