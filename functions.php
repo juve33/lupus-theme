@@ -2,9 +2,66 @@
 
 function lupustheme_theme_support() {
 
-    add_theme_support('title-tag');
-    add_theme_support('custom-logo');
-    add_theme_support('block-patterns');
+    add_theme_support( 'title-tag' );
+    add_theme_support( 'custom-logo' );
+    add_theme_support( 'block-patterns' );
+
+
+    $color_palette = array();
+
+    $primary_color = get_theme_mod( 'primary_color' );
+    if ( $primary_color ) {
+        array_push( $color_palette,
+            array(
+                'name'  => esc_html__( 'Primary Color', 'lupus' ),
+                'slug'  => 'primary-color',
+                'color' => esc_attr( $primary_color ),
+            )
+        );
+    }
+    $secondary_color = get_theme_mod( 'secondary_color' );
+    if ( $secondary_color ) {
+        array_push( $color_palette,
+            array(
+                'name'  => esc_html__( 'Secondary Color', 'lupus' ),
+                'slug'  => 'secondary-color',
+                'color' => esc_attr( $secondary_color ),
+            )
+        );
+    }
+    $tertiary_color = get_theme_mod( 'tertiary_color' );
+    if ( $tertiary_color ) {
+        array_push( $color_palette,
+            array(
+                'name'  => esc_html__( 'Tertiary Color', 'lupus' ),
+                'slug'  => 'tertiary-color',
+                'color' => esc_attr( $tertiary_color ),
+            )
+        );
+    }
+    $accent_color = get_theme_mod( 'accent_color' );
+    if ( $accent_color ) {
+        array_push( $color_palette,
+            array(
+                'name'  => esc_html__( 'Accent Color', 'lupus' ),
+                'slug'  => 'accent-color',
+                'color' => esc_attr( $accent_color ),
+            )
+        );
+    }
+    $primary_background_color = get_theme_mod( 'primary_background_color' );
+    if ( $primary_background_color ) {
+        array_push( $color_palette,
+            array(
+                'name'  => esc_html__( 'Primary Background Color', 'lupus' ),
+                'slug'  => 'primary-background-color',
+                'color' => esc_attr( $primary_background_color ),
+            )
+        );
+    }
+
+    add_theme_support( 'editor-color-palette', $color_palette );
+
 
     remove_theme_support('core-block-patterns');
 

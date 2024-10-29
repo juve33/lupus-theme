@@ -156,6 +156,3 @@ hr {
 footer {
 	scroll-snap-align: end;
 }
-mark {
-	background-color: transparent !important;
-}
