@@ -125,6 +125,37 @@ function lupustheme_customize_register($wp_customize) {
 
 
     $wp_customize->add_setting(
+        'pride_mode',
+        array(
+            'default' => "auto"
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'pride_mode',
+            array(
+                'label' => 'Pride Mode',
+                'type' => 'radio',
+                'choices'   => array(
+                    'auto' => 'Automatically',
+                    'rainbow-pride' => 'Rainbow Pride',
+                    'trans-pride' => 'Trans Pride',
+                    'none' => 'None',
+                ),
+                'description' => 
+                                'Manually set the pride mode.<br/>
+                                When set to automatically, Rainbow Pride mode is activated in June (Pride month)<br/>
+                                When set to automatically, Trans Pride mode is activated on May 17th (IDAHOBIT) and March 31st (International Transgender Day of Visibility)',
+                'section' => 'colors',
+                'settings' => 'pride_mode',
+            )
+        )
+    );
+
+
+
+    $wp_customize->add_setting(
         'primary_color',
         array(
             'default' => '#604734',
