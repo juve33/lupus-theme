@@ -604,6 +604,10 @@ function lupustheme_register_styles() {
         wp_enqueue_style( 'lupustheme-tablepress', get_template_directory_uri() . '/assets/css/tablepress.css', array(), $version, 'all' );
     }
 
+    if ( is_plugin_active( 'translatepress-multilingual/index.php' ) ) {
+        wp_enqueue_style( 'lupustheme-translatepress', get_template_directory_uri() . '/assets/css/translatepress.css', array(), $version, 'all' );
+    }
+
     if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
         wp_enqueue_style( 'lupustheme-yoast', get_template_directory_uri() . '/assets/css/yoast.css', array(), $version, 'all' );
     }
