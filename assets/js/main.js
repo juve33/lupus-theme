@@ -3,10 +3,10 @@
  */
 function nav_stickyness(condition) {
 	if (condition){  
-		$('nav').addClass("sticky");
+		$('.main-nav').addClass("sticky");
 	}
 	else{
-		$('nav').removeClass("sticky");
+		$('.main-nav').removeClass("sticky");
 	}
 }
 

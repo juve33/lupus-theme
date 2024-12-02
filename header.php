@@ -118,7 +118,7 @@
 		}
 	?>>
 
-	<nav>
+	<nav class="main-nav">
 		<div class="nav-wrapper">
 			<a href="/" class="logo">
 				<img src=

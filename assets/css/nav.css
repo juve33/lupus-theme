@@ -1,4 +1,4 @@
-nav {
+.main-nav {
 	position: fixed;
 	top: var(--wordpress-support-bar);
 	left: 0;
@@ -16,7 +16,7 @@ nav {
 }
 
 @media (min-width: 992px) {
-    nav {
+    .main-nav {
 		transition: height 0.4s ease 0s;
 	}
 }
@@ -40,7 +40,7 @@ nav {
 	}
 }
 
-nav .logo {
+.main-nav .logo {
 	position: relative;
 	display: grid;
     place-items: center center;
@@ -57,7 +57,7 @@ nav .logo {
 	display: none;
 }
 
-nav .logo img {
+.main-nav .logo img {
     width: 78%;
     padding: auto;
 	
@@ -66,7 +66,7 @@ nav .logo img {
 }
 
 @media (min-width: 992px) {
-    nav .logo {
+    .main-nav .logo {
         position: absolute;
         top: 4px;
         left: 0;
@@ -126,7 +126,7 @@ nav .logo img {
 	grid-column: 1;
 }
 
-nav .socialmedia {
+.main-nav .socialmedia {
 	display: flex;
 	align-items: center;
 	justify-content: end;
@@ -150,23 +150,23 @@ nav .socialmedia {
 	}
 }
 
-nav li {
+.main-nav li {
     display: inline;
 }
 
-nav .socialmedia li {
+.main-nav .socialmedia li {
 	display: inline-flex;
 	align-items: center;
 	list-style: none;
 	height: 100%;
 }
 
-nav .socialmedia li:has([href=""]) {
+.main-nav .socialmedia li:has([href=""]) {
 	display: none;
 }
 
-nav .socialmedia a,
-nav .socialmedia a * {
+.main-nav .socialmedia a,
+.main-nav .socialmedia a * {
 	display: inline-flex;
 	place-items: center center;
 	place-content: center center;
@@ -177,12 +177,12 @@ nav .socialmedia a * {
 	transition: all 0.4s ease 0s;
 }
 
-nav .socialmedia a {
+.main-nav .socialmedia a {
 	margin: 0 18px;
 	text-decoration: none;
 }
 
-nav .socialmedia a[href=""] {
+.main-nav .socialmedia a[href=""] {
 	display: none;
 }
 
