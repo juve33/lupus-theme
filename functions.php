@@ -9,56 +9,26 @@ function lupustheme_theme_support() {
 
     $color_palette = array();
 
-    $primary_color = get_theme_mod( 'primary_color' );
-    if ( $primary_color ) {
-        array_push( $color_palette,
-            array(
-                'name'  => esc_html__( 'Primary Color', 'lupus' ),
-                'slug'  => 'primary-color',
-                'color' => esc_attr( $primary_color ),
-            )
-        );
-    }
-    $secondary_color = get_theme_mod( 'secondary_color' );
-    if ( $secondary_color ) {
-        array_push( $color_palette,
-            array(
-                'name'  => esc_html__( 'Secondary Color', 'lupus' ),
-                'slug'  => 'secondary-color',
-                'color' => esc_attr( $secondary_color ),
-            )
-        );
-    }
-    $tertiary_color = get_theme_mod( 'tertiary_color' );
-    if ( $tertiary_color ) {
-        array_push( $color_palette,
-            array(
-                'name'  => esc_html__( 'Tertiary Color', 'lupus' ),
-                'slug'  => 'tertiary-color',
-                'color' => esc_attr( $tertiary_color ),
-            )
-        );
-    }
-    $accent_color = get_theme_mod( 'accent_color' );
-    if ( $accent_color ) {
-        array_push( $color_palette,
-            array(
-                'name'  => esc_html__( 'Accent Color', 'lupus' ),
-                'slug'  => 'accent-color',
-                'color' => esc_attr( $accent_color ),
-            )
-        );
-    }
-    $primary_background_color = get_theme_mod( 'primary_background_color' );
-    if ( $primary_background_color ) {
-        array_push( $color_palette,
-            array(
-                'name'  => esc_html__( 'Primary Background Color', 'lupus' ),
-                'slug'  => 'primary-background-color',
-                'color' => esc_attr( $primary_background_color ),
-            )
-        );
-    }
+    $colors = array(
+        array( 'Primary Color', 'primary_color', 'primary-color' ),
+        array( 'Secondary Color', 'secondary_color', 'secondary-color' ),
+        array( 'Tertiary Color', 'tertiary_color', 'tertiary-color' ),
+        array( 'Accent Color', 'accent_color', 'accent-color' ),
+        array( 'Primary Background Color', 'primary_background_color', 'primary-background-color' ),
+    );
+
+    foreach ( $colors as $color ) :
+        $theme_mod_color = get_theme_mod( $color[1] );
+        if ( $theme_mod_color ) {
+            array_push( $color_palette,
+                array(
+                    'name'  => esc_html__( $color[0], 'lupus' ),
+                    'slug'  => $color[2],
+                    'color' => esc_attr( $theme_mod_color ),
+                )
+            );
+        }
+    endforeach;
 
     add_theme_support( 'editor-color-palette', $color_palette );
 
@@ -155,97 +125,34 @@ function lupustheme_customize_register($wp_customize) {
 
 
 
-    $wp_customize->add_setting(
-        'primary_color',
-        array(
-            'default' => '#604734',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
-    );
-    $wp_customize->add_setting(
-        'secondary_color',
-        array(
-            'default' => '#363636',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
-    );
-    $wp_customize->add_setting(
-        'tertiary_color',
-        array(
-            'default' => '#e2001a',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
-    );
-    $wp_customize->add_setting(
-        'accent_color',
-        array(
-            'default' => '#fff',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
-    );
-    $wp_customize->add_setting(
-        'primary_background_color',
-        array(
-            'default' => '#fff',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
+    $colors = array(
+        array( 'Primary Color', 'primary_color', '#604734' ),
+        array( 'Secondary Color', 'secondary_color', '#363636' ),
+        array( 'Tertiary Color', 'tertiary_color', '#e2001a' ),
+        array( 'Accent Color', 'accent_color', '#fff' ),
+        array( 'Primary Background Color', 'primary_background_color', '#fff' ),
     );
 
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'primary_color',
+    foreach ( $colors as $color ) :
+        $wp_customize->add_setting(
+            $color[1],
             array(
-                'label' => 'Primary Color',
-                'section' => 'colors',
-                'settings' => 'primary_color',
+                'default' => $color[2],
+                'sanitize_callback' => 'sanitize_hex_color',
             )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'secondary_color',
-            array(
-                'label' => 'Secondary Color',
-                'section' => 'colors',
-                'settings' => 'secondary_color',
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                $color[1],
+                array(
+                    'label' => $color[0],
+                    'section' => 'colors',
+                    'settings' => $color[1],
+                )
             )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'tertiary_color',
-            array(
-                'label' => 'Tertiary Color',
-                'section' => 'colors',
-                'settings' => 'tertiary_color',
-            )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'accent_color',
-            array(
-                'label' => 'Accent Color',
-                'section' => 'colors',
-                'settings' => 'accent_color',
-            )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'primary_background_color',
-            array(
-                'label' => 'Primary Background Color',
-                'section' => 'colors',
-                'settings' => 'primary_background_color',
-            )
-        )
-    );
+        );
+    endforeach;
 
 
 
@@ -257,109 +164,34 @@ function lupustheme_customize_register($wp_customize) {
         )
     );
 
-    $wp_customize->add_setting(
-        'facebook_link',
-        array(
-            'default' => 'https://www.facebook.com/'
-        )
-    );
-    $wp_customize->add_setting(
-        'instagram_link',
-        array(
-            'default' => 'https://www.instagram.com/'
-        )
-    );
-    $wp_customize->add_setting(
-        'tiktok_link',
-        array(
-            'default' => 'https://www.tiktok.com/'
-        )
-    );
-    $wp_customize->add_setting(
-        'x_link',
-        array(
-            'default' => 'https://www.x.com/'
-        )
-    );
-    $wp_customize->add_setting(
-        'threads_link',
-        array(
-            'default' => 'https://www.threads.net/'
-        )
-    );
-    $wp_customize->add_setting(
-        'github_link',
-        array(
-            'default' => 'https://www.github.com/'
-        )
+    $socials = array(
+        array( 'Facebook', 'facebook_link', 'https://www.facebook.com/' ),
+        array( 'Instagram', 'instagram_link', 'https://www.instagram.com/' ),
+        array( 'Tiktok', 'tiktok_link', 'https://www.tiktok.com/' ),
+        array( 'X', 'x_link', 'https://www.x.com/' ),
+        array( 'Threads', 'threads_link', 'https://www.threads.net/' ),
+        array( 'Github', 'github_link', 'https://www.github.com/' ),
     );
 
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'facebook_link',
+    foreach ( $socials as $social ) :
+        $wp_customize->add_setting(
+            $social[1],
             array(
-                'label' => 'Facebook',
-                'section' => 'socialmedia',
-                'settings' => 'facebook_link',
+                'default' => $social[2]
             )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'instagram_link',
-            array(
-                'label' => 'Instagram',
-                'section' => 'socialmedia',
-                'settings' => 'instagram_link',
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                $social[1],
+                array(
+                    'label' => $social[0],
+                    'section' => 'socialmedia',
+                    'settings' => $social[1],
+                )
             )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'tiktok_link',
-            array(
-                'label' => 'Tiktok',
-                'section' => 'socialmedia',
-                'settings' => 'tiktok_link',
-            )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'x_link',
-            array(
-                'label' => 'X',
-                'section' => 'socialmedia',
-                'settings' => 'x_link',
-            )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'threads_link',
-            array(
-                'label' => 'Threads',
-                'section' => 'socialmedia',
-                'settings' => 'threads_link',
-            )
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'github_link',
-            array(
-                'label' => 'Github',
-                'section' => 'socialmedia',
-                'settings' => 'github_link',
-            )
-        )
-    );
+        );
+    endforeach;
 
 }
 
@@ -375,42 +207,36 @@ function lupustheme_custom_css_properties() {
 
     echo '<style type="text/css" id="lupustheme-colors">:root { ';
 
-    $primary_color = get_theme_mod('primary_color');
-    if ($primary_color) {
-        echo '--primary-color: ' . esc_attr($primary_color) . '; ';
-    }
-    $secondary_color = get_theme_mod('secondary_color');
-    if ($secondary_color) {
-        echo '--secondary-color: ' . esc_attr($secondary_color) . '; ';
-    }
-    $tertiary_color = get_theme_mod('tertiary_color');
-    if ($tertiary_color) {
-        echo '--tertiary-color: ' . esc_attr($tertiary_color) . '; ';
-    }
-    $accent_color = get_theme_mod('accent_color');
-    if ($accent_color) {
-        echo '--accent-color: ' . esc_attr($accent_color) . '; ';
-    }
-    $primary_background_color = get_theme_mod('primary_background_color');
-    if ($primary_background_color) {
-        echo '--primary-background-color: ' . esc_attr($primary_background_color) . '; ';
-    }
+    $colors = array(
+        array( 'primary_color', 'primary-color' ),
+        array( 'secondary_color', 'secondary-color' ),
+        array( 'tertiary_color', 'tertiary-color' ),
+        array( 'accent_color', 'accent-color' ),
+        array( 'primary_background_color', 'primary-background-color' ),
+    );
 
-    if(function_exists('the_custom_logo')) {
+    foreach ( $colors as $color ) :
+        $theme_mod_color = get_theme_mod( $color[0] );
+        if ( $theme_mod_color ) {
+            echo '--' . $color[1] . ': ' . esc_attr( $theme_mod_color ) . '; ';
+        }
+    endforeach;
 
-		$custom_logo_id = get_theme_mod('custom_logo');
-		$logo = wp_get_attachment_image_src($custom_logo_id, 500);
+    if( function_exists( 'the_custom_logo' ) ) {
 
-        if ($logo) {
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$logo = wp_get_attachment_image_src( $custom_logo_id, 500 );
+
+        if ( $logo ) {
             echo '--logo-src: url(' . $logo[0] . '); ';
         }
 
 	}
 
-    $alternative_custom_logo_id = get_theme_mod('alternative_logo');
-    $alternative_logo = wp_get_attachment_image_src($alternative_custom_logo_id, 500);
+    $alternative_custom_logo_id = get_theme_mod( 'alternative_logo' );
+    $alternative_logo = wp_get_attachment_image_src( $alternative_custom_logo_id, 500 );
 
-    if ($alternative_logo) {
+    if ( $alternative_logo ) {
         echo '--alternative-logo-src: url(' . $alternative_logo[0] . '); ';
     }
 
@@ -525,55 +351,29 @@ if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
 
 function lupustheme_register_pattern_categories() {
 
-	register_block_pattern_category( 'lupus/standard-sections', array( 
-		'label'       => __( 'Height: Standard Sections', 'lupus' ),
-		'description' => __( 'Standard-sized sections', 'lupus' )
-	) );
+    $block_pattern_categories = array(
+        array( 'Height: Standard Sections', 'Standard-sized sections', 'lupus/standard-sections' ),
+        array( 'Height: Full-sized Sections', 'Sections that cover the entire height of the viewport', 'lupus/full-sized-sections' ),
 
-    register_block_pattern_category( 'lupus/full-sized-sections', array( 
-		'label'       => __( 'Height: Full-sized Sections', 'lupus' ),
-		'description' => __( 'Sections that cover the entire height of the viewport', 'lupus' )
-	) );
+        array( 'Background: Standard Color Sections', 'Sections using standard colors', 'lupus/standard-colors-sections' ),
+        array( 'Background: Alternative Color Sections', 'Sections using alternative colors', 'lupus/alternative-colors-sections' ),
+        array( 'Background: Background Image Sections', 'Sections with a background image', 'lupus/bgimage-sections' ),
 
-    register_block_pattern_category( 'lupus/standard-colors-sections', array( 
-		'label'       => __( 'Background: Standard Color Sections', 'lupus' ),
-		'description' => __( 'Sections using standard colors', 'lupus' )
-	) );
+        array( 'Background Feature: Background Logo Sections', 'Sections with the logo in the background', 'lupus/logo-sections' ),
+        array( 'Background Feature: Background Text Sections', 'Sections with the text in the background', 'lupus/text-sections' ),
 
-    register_block_pattern_category( 'lupus/alternative-colors-sections', array( 
-		'label'       => __( 'Background: Alternative Color Sections', 'lupus' ),
-		'description' => __( 'Sections using alternative colors', 'lupus' )
-	) );
+        array( 'Content: Image Sections', 'Sections with images', 'lupus/image-sections' ),
+        array( 'Content: Empty Sections', 'Sections with only a title, subtitle and a paragraph', 'lupus/empty-sections' ),
 
-    register_block_pattern_category( 'lupus/bgimage-sections', array( 
-		'label'       => __( 'Background: Background Image Sections', 'lupus' ),
-		'description' => __( 'Sections with a background image', 'lupus' )
-	) );
+        array( 'Special: Horizontal Scroll Sections', 'Sections that scroll horizontally', 'lupus/horizontal-sections' ),
+    );
 
-    register_block_pattern_category( 'lupus/logo-sections', array( 
-		'label'       => __( 'Background Feature: Background Logo Sections', 'lupus' ),
-		'description' => __( 'Sections with the logo in the background', 'lupus' )
-	) );
-
-    register_block_pattern_category( 'lupus/text-sections', array( 
-		'label'       => __( 'Background Feature: Background Text Sections', 'lupus' ),
-		'description' => __( 'Sections with the text in the background', 'lupus' )
-	) );
-
-    register_block_pattern_category( 'lupus/image-sections', array( 
-		'label'       => __( 'Content: Image Sections', 'lupus' ),
-		'description' => __( 'Sections including images', 'lupus' )
-	) );
-
-    register_block_pattern_category( 'lupus/empty-sections', array( 
-		'label'       => __( 'Content: Empty Sections', 'lupus' ),
-		'description' => __( 'Sections including only a title, subtitle and a paragraph', 'lupus' )
-	) );
-
-    register_block_pattern_category( 'lupus/horizontal-sections', array( 
-		'label'       => __( 'Special: Horizontal Scroll Sections', 'lupus' ),
-		'description' => __( 'Sections that scroll horizontally', 'lupus' )
-	) );
+    foreach ( $block_pattern_categories as $block_pattern_category ) :
+        register_block_pattern_category( $block_pattern_category[2], array( 
+            'label'       => __( $block_pattern_category[0], 'lupus' ),
+            'description' => __( $block_pattern_category[1], 'lupus' )
+        ) );
+    endforeach;
 }
 
 add_action( 'init', 'lupustheme_register_pattern_categories' );
@@ -583,34 +383,41 @@ add_action( 'init', 'lupustheme_register_pattern_categories' );
 function lupustheme_register_styles() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style( 'lupustheme-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-variables', get_template_directory_uri() . '/assets/css/variables.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-nav', get_template_directory_uri() . '/assets/css/nav.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-general-classes', get_template_directory_uri() . '/assets/css/general-classes.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-patterns', get_template_directory_uri() . '/assets/css/patterns.css', array(), $version, 'all' );
-    wp_enqueue_style( 'lupustheme-footer', get_template_directory_uri() . '/assets/css/footer.css', array(), $version, 'all' );
+    
+    $stylesheets = array(
+        array( 'main', 'main.css' ),
+        array( 'variables', 'variables.css' ),
+        array( 'nav', 'nav.css' ),
+        array( 'blocks', 'blocks.css' ),
+        array( 'general-classes', 'general-classes.css' ),
+        array( 'patterns', 'patterns.css' ),
+        array( 'footer', 'footer.css' ),
+    );
+
+    foreach ( $stylesheets as $stylesheet ) :
+        wp_enqueue_style( 'lupustheme-' . $stylesheet[0], get_template_directory_uri() . '/assets/css/' . $stylesheet[1], array(), $version, 'all' );
+    endforeach;
+
     wp_enqueue_style( 'lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all' );
+
+
 
     if ( ! function_exists( 'is_plugin_active' ) ) {
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
     
-    if ( is_plugin_active( 'google-calendar-events/google-calendar-events.php' ) ) {
-        wp_enqueue_style( 'lupustheme-simple-calendar', get_template_directory_uri() . '/assets/css/simple-calendar.css', array(), $version, 'all' );
-    }
+    $plugin_stylesheets = array(
+        array( 'simple-calendar', 'simple-calendar.css', 'google-calendar-events/google-calendar-events.php' ),
+        array( 'tablepress', 'tablepress.css', 'tablepress/tablepress.php' ),
+        array( 'translatepress', 'translatepress.css', 'translatepress-multilingual/index.php' ),
+        array( 'yoast', 'yoast.css', 'wordpress-seo/wp-seo.php' ),
+    );
 
-    if ( is_plugin_active( 'tablepress/tablepress.php' ) ) {
-        wp_enqueue_style( 'lupustheme-tablepress', get_template_directory_uri() . '/assets/css/tablepress.css', array(), $version, 'all' );
-    }
-
-    if ( is_plugin_active( 'translatepress-multilingual/index.php' ) ) {
-        wp_enqueue_style( 'lupustheme-translatepress', get_template_directory_uri() . '/assets/css/translatepress.css', array(), $version, 'all' );
-    }
-
-    if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
-        wp_enqueue_style( 'lupustheme-yoast', get_template_directory_uri() . '/assets/css/yoast.css', array(), $version, 'all' );
-    }
+    foreach ( $plugin_stylesheets as $plugin_stylesheet ) :
+        if ( is_plugin_active( $plugin_stylesheet[2] ) ) {
+            wp_enqueue_style( 'lupustheme-' . $plugin_stylesheet[0], get_template_directory_uri() . '/assets/css/' . $plugin_stylesheet[1], array(), $version, 'all' );
+        }
+    endforeach;
 
 }
 
@@ -622,7 +429,14 @@ function lupustheme_register_scripts() {
 
     $version = wp_get_theme()->get( 'Version' );
     wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true );
-    wp_enqueue_script( 'lupustheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true );
+
+    $scripts = array(
+        array( 'main', 'main.js' ),
+    );
+
+    foreach ( $scripts as $script ) :
+        wp_enqueue_script( 'lupustheme-' . $script[0], get_template_directory_uri() . '/assets/js/' . $script[1], array(), $version, true );
+    endforeach;
 
 }
 
