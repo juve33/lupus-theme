@@ -72,26 +72,28 @@
     <!-- /wp:group -->
      
     <!-- wp:html -->
-    <div class="pitch">
-        <div class="hoops">
-            <div class="hoop hoop-medium"></div>
-            <div class="hoop hoop-large"></div>
-            <div class="hoop hoop-small"></div>
-        </div>
-        <div class="hoops">
-            <div class="hoop hoop-small"></div>
-            <div class="hoop hoop-large"></div>
-            <div class="hoop hoop-medium"></div>
-        </div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="grass">
-            <?php
-                for ($x = 1; $x <= 65; $x++) {
-                    echo '<div class="grass-row"></div>';
-                }
-            ?>
+    <div class="pitch-wrapper">
+        <div class="pitch">
+            <div class="hoops">
+                <div class="hoop hoop-medium"></div>
+                <div class="hoop hoop-large"></div>
+                <div class="hoop hoop-small"></div>
+            </div>
+            <div class="hoops">
+                <div class="hoop hoop-small"></div>
+                <div class="hoop hoop-large"></div>
+                <div class="hoop hoop-medium"></div>
+            </div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="grass">
+                <?php
+                    for ($x = 1; $x <= 65; $x++) {
+                        echo '<div class="grass-row"></div>';
+                    }
+                ?>
+            </div>
         </div>
     </div>
     <!-- /wp:html -->

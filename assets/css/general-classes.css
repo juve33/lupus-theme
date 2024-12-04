@@ -325,85 +325,75 @@ header .wp-block-cover__image-background {
     display: none !important;
 }
 
-.horizontal>.wp-block-group__inner-container {
-    box-sizing: border-box;
+.horizontal>.wp-block-group {
+	position: sticky;
+	top: var(--nav-height-small);
 	width: 100%;
     height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar));
     height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar));
 	margin-top: 0;
-	position: sticky;
-	top: var(--nav-height-small);
 
-    overflow: hidden;
-}
-
-.horizontal>.wp-block-group__inner-container>.wp-block-group {
-    box-sizing: border-box;
-	height: 100%;
-	display: flex;
     will-change: transform;
     transform-style: preserve-3d;
     transform: translate3d(calc((var(--number-of-items) - 1) * var(--left)), 0px, 0px);
     gap: 0;
 }
 
-.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group {
+.horizontal>.wp-block-group>.wp-block-group {
 	flex: none;
 	width: var(--width);
+    max-width: 1200px;
 	max-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar));
     max-height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar));
-	display: block;
-    padding-block: var(--standard-margin);
+    padding: var(--standard-margin) .714285rem;
 
     overflow: hidden;
 }
 
-.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group>.wp-block-group__inner-container {
-    max-width: 1200px;
-    max-height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar) - 2 * var(--standard-margin));
-	margin: 0 auto;
-	padding-inline: .714285rem;
+@media (min-width: 1200px) {
+    .horizontal>.wp-block-group>.wp-block-group {
+        margin: 0 calc(50vw - 600px);
+    }
 }
 
-.horizontal>.wp-block-group__inner-container>.wp-block-group>.wp-block-group>.wp-block-group__inner-container * {
-    max-height: inherit;
-}
-
-.horizontal>.wp-block-group__inner-container>.wp-block-group .photo-credit {
+.horizontal>.wp-block-group .photo-credit {
+    top: var(--standard-margin);
     left: .714285rem !important;
+}
+
+@media (min-width: 601px) {
+    .horizontal>.wp-block-group .photo-credit {
+        top: unset;
+        bottom: calc(var(--standard-margin) + .6em);
+    }
 }
 
 .horizontal .wp-block-media-text__content {
     padding: 1rem 1.5rem !important;
 
-    backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%);
+    background-color: color-mix(in srgb, var(--primary-background-color) 50%, transparent) !important
 }
 
-.horizontal.secondary-color-scheme .wp-block-media-text__content,
-.horizontal:not(:has(.pitch)) .wp-block-media-text__content {
-    backdrop-filter: unset;
-}
-
-@supports not (backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%)) {
-    .horizontal .wp-block-media-text__content,
-    .horizontal .wp-block-media-text__content * {
-        color: var(--accent-color) !important;
-    }
-
-    .horizontal .wp-block-media-text__content {
-        background-color: color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
-    }
-}
-
-@supports not ((backdrop-filter: blur(.5rem) brightness(160%) grayscale(60%)) or (background-color: color-mix(in srgb, var(--primary-color) 60%, transparent))) {
+@supports not (background-color: color-mix(in srgb, var(--primary-background-color) 50%, transparent)) {
     .horizontal .wp-block-media-text__content {
         background-color: var(--primary-color) !important;
     }
 }
 
+@media (min-width: 992px) {
+    .horizontal .wp-block-media-text__content {
+        padding: 0 !important;
+    }
+}
+
+.horizontal.secondary-color-scheme .wp-block-media-text__content,
+.horizontal:not(:has(.pitch)) .wp-block-media-text__content {
+    background-color: unset !important;
+}
+
 @media (max-width: 600px) {
     .horizontal .wp-block-media-text__content {
-        padding: 1rem !important;
+        padding: 1rem 0 !important;
     }
 }
 
@@ -418,6 +408,23 @@ header .wp-block-cover__image-background {
 
 
 /* PITCH */
+
+.pitch-wrapper {
+    height: calc(100dvh - var(--nav-height-small) - var(--wordpress-support-bar));
+    width: 100%;
+
+    position: sticky;
+    top: var(--wordpress-support-bar);
+    left: 0;
+
+    z-index: -1;
+}
+
+@media (min-width: 992px) {
+    .pitch-wrapper {
+        top: calc(var(--nav-height-small) + var(--wordpress-support-bar));
+    }
+}
 
 .pitch {
     --size-factor: 5;
@@ -435,8 +442,6 @@ header .wp-block-cover__image-background {
 
     background-color: #336F1A;
     opacity: 1;
-
-    z-index: -1;
 
     /* Anti Aliasing on Firefox */
     outline: 1px solid transparent;
