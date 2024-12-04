@@ -33,7 +33,7 @@
 .tablepress th:hover,
 .tablepress th[aria-sort] {
     color: var(--accent-color) !important;
-    background-color: var(--tertiary-color) !important;
+    background: fixed var(--tertiary-color) !important;
 }
 
 .dataTables_length,
