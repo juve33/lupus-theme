@@ -13,12 +13,12 @@
         <span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span>
         <div class="wp-block-cover__image-background has-parallax" style="background-position:50% 50%;background-image:url(<?php echo esc_url(get_template_directory_uri() . '/assets/images/image1.jpg') ?>)"></div>
         <div class="wp-block-cover__inner-container">
-            <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-            <p class="has-text-align-left subtitle has-small-font-size" style="text-transform:uppercase"><?php esc_html_e('Subtitle', 'lupus') ?></p>
+            <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","fontSize":"small"} -->
+            <p class="has-text-align-left subtitle has-small-font-size"><?php esc_html_e('Subtitle', 'lupus') ?></p>
             <!-- /wp:paragraph -->
              
-            <!-- wp:heading {"level":1,"placeholder":"Title","style":{"typography":{"textTransform":"uppercase"}}} -->
-            <h1 class="wp-block-heading" style="text-transform:uppercase"><?php esc_html_e('Title', 'lupus') ?></h1>
+            <!-- wp:heading {"level":1,"placeholder":"Title"} -->
+            <h1 class="wp-block-heading"><?php esc_html_e('Title', 'lupus') ?></h1>
             <!-- /wp:heading -->
         </div>
     </div>

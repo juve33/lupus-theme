@@ -106,19 +106,33 @@
 </head> 
 
 <body <?php
-		// Checks for pride month (June)
-		if ( wp_date('F') == 'June' ) {
-			echo 'class="pride"';
+		$pride_mode = get_theme_mod( 'pride_mode' );
+		
+		if ( $pride_mode == 'auto' ) {
+			// Checks for pride month (June)
+			if ( wp_date('F') == 'June' ) {
+				echo 'class="pride"';
+			}
+			else {
+				// Checks for IDAHOBIT (May 17) and International Transgender Day of Visibility (March 31)
+				if ( ( wp_date( 'F j' ) == 'May 17' ) || ( wp_date( 'F j' ) == 'March 31' ) ) {
+					echo 'class="trans-pride"';
+				}
+			}
 		}
 		else {
-			// Checks for IDAHOBIT (May 17) and International Transgender Day of Visibility (March 31)
-			if ( ( wp_date( 'F j' ) == 'May 17' ) || ( wp_date( 'F j' ) == 'March 31' ) ) {
-				echo 'class="trans-pride"';
+			if ( $pride_mode == 'rainbow-pride' ) {
+				echo 'class="pride"';
+			}
+			else {
+				if ( $pride_mode == 'trans-pride' ) {
+					echo 'class="trans-pride"';
+				}
 			}
 		}
 	?>>
 
-	<nav>
+	<nav class="main-nav">
 		<div class="nav-wrapper">
 			<a href="/" class="logo">
 				<img src=

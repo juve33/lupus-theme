@@ -2,11 +2,6 @@
 
 header {
     position: relative;
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: unset !important;
-    width: 100%;
-    overflow: hidden;
 }
 
 header.full-sized {
@@ -17,7 +12,7 @@ header.full-sized {
 header .wp-block-cover__inner-container {
     padding: 2em .714285rem !important;
 
-    font-family: var(--emphasized-font) !important;
+    font-family: var(--secondary-font) !important;
     font-size: 4rem !important;
 }
 
@@ -34,10 +29,6 @@ header.full-sized .wp-block-cover__inner-container {
     header .wp-block-cover__inner-container {
         font-size: 3rem !important;
     }
-}
-
-.wrapper>header.wp-block-group>.wp-block-group__inner-container>.wp-block-cover>.wp-block-cover__inner-container {
-    margin: 0 auto;
 }
 
 header .subtitle {

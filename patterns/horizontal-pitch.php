@@ -18,12 +18,12 @@
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/image1.jpg') ?>" alt=""/>
                 </figure>
                 <div class="wp-block-media-text__content">
-                    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-                    <p class="has-text-align-left subtitle has-small-font-size" style="text-transform:uppercase"><?php esc_html_e('Subtitle', 'lupus') ?></p>
+                    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","fontSize":"small"} -->
+                    <p class="has-text-align-left subtitle has-small-font-size"><?php esc_html_e('Subtitle', 'lupus') ?></p>
                     <!-- /wp:paragraph -->
                      
-                    <!-- wp:heading {"level":3,"placeholder":"Title","style":{"typography":{"textTransform":"uppercase"}}} -->
-                    <h3 class="wp-block-heading" style="text-transform:uppercase"><?php esc_html_e('Title', 'lupus') ?></h3>
+                    <!-- wp:heading {"level":3,"placeholder":"Title"} -->
+                    <h3 class="wp-block-heading"><?php esc_html_e('Title', 'lupus') ?></h3>
                     <!-- /wp:heading -->
                     
                     <!-- wp:paragraph {"placeholder":"Content…"} -->
@@ -47,12 +47,12 @@
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/image1.jpg') ?>" alt=""/>
                 </figure>
                 <div class="wp-block-media-text__content">
-                    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-                    <p class="has-text-align-left subtitle has-small-font-size" style="text-transform:uppercase"><?php esc_html_e('Subtitle', 'lupus') ?></p>
+                    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","fontSize":"small"} -->
+                    <p class="has-text-align-left subtitle has-small-font-size"><?php esc_html_e('Subtitle', 'lupus') ?></p>
                     <!-- /wp:paragraph -->
                      
-                    <!-- wp:heading {"level":3,"placeholder":"Title","style":{"typography":{"textTransform":"uppercase"}}} -->
-                    <h3 class="wp-block-heading" style="text-transform:uppercase"><?php esc_html_e('Title', 'lupus') ?></h3>
+                    <!-- wp:heading {"level":3,"placeholder":"Title"} -->
+                    <h3 class="wp-block-heading"><?php esc_html_e('Title', 'lupus') ?></h3>
                     <!-- /wp:heading -->
                     
                     <!-- wp:paragraph {"placeholder":"Content…"} -->
@@ -72,26 +72,28 @@
     <!-- /wp:group -->
      
     <!-- wp:html -->
-    <div class="pitch">
-        <div class="hoops">
-            <div class="hoop hoop-medium"></div>
-            <div class="hoop hoop-large"></div>
-            <div class="hoop hoop-small"></div>
-        </div>
-        <div class="hoops">
-            <div class="hoop hoop-small"></div>
-            <div class="hoop hoop-large"></div>
-            <div class="hoop hoop-medium"></div>
-        </div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="grass">
-            <?php
-                for ($x = 1; $x <= 65; $x++) {
-                    echo '<div class="grass-row"></div>';
-                }
-            ?>
+    <div class="pitch-wrapper">
+        <div class="pitch">
+            <div class="hoops">
+                <div class="hoop hoop-medium"></div>
+                <div class="hoop hoop-large"></div>
+                <div class="hoop hoop-small"></div>
+            </div>
+            <div class="hoops">
+                <div class="hoop hoop-small"></div>
+                <div class="hoop hoop-large"></div>
+                <div class="hoop hoop-medium"></div>
+            </div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="grass">
+                <?php
+                    for ($x = 1; $x <= 65; $x++) {
+                        echo '<div class="grass-row"></div>';
+                    }
+                ?>
+            </div>
         </div>
     </div>
     <!-- /wp:html -->

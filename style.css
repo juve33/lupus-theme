@@ -3,8 +3,12 @@ Theme Name: Lupus
 Theme URI: https://github.com/juve33/lupus-theme
 Author: Julian Velling
 Author URI: https://github.com/juve33
-Description: Lupus is a theme designed for Quadball team homepages.
-Version: 0.4
+Description: Lupus is a theme designed for FC St. Pauli Werewolves.
+Version: 0.5
+Requires at least: 6.6.2
+Tested up to: 6.7.1
+Requires PHP: 8.1.29
 License: MIT License
+License URI: https://github.com/juve33/lupus-theme/blob/main/LICENSE
 Text Domain: lupus
 */

@@ -18,9 +18,10 @@
 
 .wp-block-yoast-faq-block .schema-faq-question {
     color: var(--tertiary-color) !important;
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-weight: bold;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: var(--emphasized-texttransform);
 }
 
 
@@ -48,7 +49,8 @@
 .wp-block-yoast-how-to-block .schema-how-to-step::marker,
 .wp-block-yoast-how-to-block .schema-how-to-step-name {
     color: var(--tertiary-color) !important;
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
+    font-weight: bold;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: var(--emphasized-texttransform);
 }

@@ -1,4 +1,4 @@
-nav {
+.main-nav {
 	position: fixed;
 	top: var(--wordpress-support-bar);
 	left: 0;
@@ -16,7 +16,7 @@ nav {
 }
 
 @media (min-width: 992px) {
-    nav {
+    .main-nav {
 		transition: height 0.4s ease 0s;
 	}
 }
@@ -40,7 +40,7 @@ nav {
 	}
 }
 
-nav .logo {
+.main-nav .logo {
 	position: relative;
 	display: grid;
     place-items: center center;
@@ -57,7 +57,7 @@ nav .logo {
 	display: none;
 }
 
-nav .logo img {
+.main-nav .logo img {
     width: 78%;
     padding: auto;
 	
@@ -66,7 +66,7 @@ nav .logo img {
 }
 
 @media (min-width: 992px) {
-    nav .logo {
+    .main-nav .logo {
         position: absolute;
         top: 4px;
         left: 0;
@@ -126,7 +126,7 @@ nav .logo img {
 	grid-column: 1;
 }
 
-nav .socialmedia {
+.main-nav .socialmedia {
 	display: flex;
 	align-items: center;
 	justify-content: end;
@@ -150,23 +150,23 @@ nav .socialmedia {
 	}
 }
 
-nav li {
+.main-nav li {
     display: inline;
 }
 
-nav .socialmedia li {
+.main-nav .socialmedia li {
 	display: inline-flex;
 	align-items: center;
 	list-style: none;
 	height: 100%;
 }
 
-nav .socialmedia li:has([href=""]) {
+.main-nav .socialmedia li:has([href=""]) {
 	display: none;
 }
 
-nav .socialmedia a,
-nav .socialmedia a * {
+.main-nav .socialmedia a,
+.main-nav .socialmedia a * {
 	display: inline-flex;
 	place-items: center center;
 	place-content: center center;
@@ -177,17 +177,29 @@ nav .socialmedia a * {
 	transition: all 0.4s ease 0s;
 }
 
-nav .socialmedia a {
+.main-nav .socialmedia a {
 	margin: 0 18px;
 	text-decoration: none;
 }
 
-nav .socialmedia a[href=""] {
+.main-nav .socialmedia a[href=""] {
 	display: none;
 }
 
 .sticky .socialmedia a * {
 	font-size: 30px;
+}
+
+.navigation li,
+.hamburger-menu li {
+	font-family: var(--secondary-font);
+	font-weight: bold;
+	text-transform: var(--header-texttransform);
+}
+
+.navigation li a,
+.hamburger-menu li a {
+	font-style: inherit;
 }
 
 .navigation > li > a {
@@ -198,17 +210,12 @@ nav .socialmedia a[href=""] {
 	cursor: pointer;
 	color: var(--secondary-color);
 	text-decoration: none;
-	text-transform: uppercase;
 	text-wrap: nowrap;
 	-webkit-transform: rotate(0.03deg);
 	-ms-transform: rotate(0.03deg);
 	transform: rotate(0.03deg);
 	padding-left: 8px;
 	padding-right: 8px;
-}
-
-.navigation > li > a {
-	font-family: var(--emphasized-font);
 }
 
 .navigation .hamburger-icon i {
@@ -430,15 +437,12 @@ nav .socialmedia a[href=""] {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	font-family: var(--emphasized-font);
 	font-size: 13px;
-	font-weight: 800;
 	color: var(--accent-color);
 	text-decoration: none;
 	-webkit-transform: rotate(0.03deg);
 	-ms-transform: rotate(0.03deg);
 	transform: rotate(0.03deg);
-	text-transform: uppercase;
 }
 
 .navigation .sub-menu a:hover,
@@ -499,7 +503,6 @@ nav .socialmedia a[href=""] {
 		color: var(--accent-color);
 		background: fixed var(--primary-color);
 		text-align: center;
-		text-transform: uppercase;
 
 		transition: all 0s, height 0.1s cubic-bezier(0.65, 0.05, 0.36, 1), transform 0.3s ease-out;
 	}
@@ -517,7 +520,6 @@ nav .socialmedia a[href=""] {
 		position: relative;
 		width: 100%;
 		opacity: 0;
-		font-family: var(--emphasized-font);
 		font-size: 13px;
 		line-height: 52px;
 		cursor: pointer;
@@ -631,8 +633,11 @@ nav .socialmedia a[href=""] {
 	}
 
 	.hamburger-menu .sub-menu li {
-		font-family: var(--default-font);
+		font-family: var(--main-font);
+		font-style: normal;
+		font-weight: normal;
 		font-size: 1rem;
+		text-transform: var(--emphasized-texttransform);
 		color: var(--primary-color);
 		border: 0;
 	}

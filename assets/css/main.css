@@ -1,12 +1,4 @@
-@font-face {
-	font-family: "Futura";
-	src:
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.eot?#iefix") format("eot"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff2") format("woff2"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff") format("woff"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.ttf") format("truetype");
-	font-weight: 800;
-}
+@import url('futura.css');
 
 *,
 ::before,
@@ -43,7 +35,7 @@ html, body {
 }
 
 body {
-	font-family: var(--default-font);
+	font-family: var(--main-font);
 	font-size: 1rem;
 	line-height: 1.5;
 	color: var(--secondary-color);
@@ -100,9 +92,10 @@ h2,
 h3,
 h4,
 h5 {
-    letter-spacing: -0.03em;
-	text-transform: uppercase;
-	font-family: var(--emphasized-font);
+	font-family: var(--header-font);
+	font-weight: bold;
+	text-transform: var(--header-texttransform);
+	letter-spacing: var(--emphasized-letterspacing);
 }
 
 h2,
@@ -142,6 +135,11 @@ p:last-child {
 
 a {
 	text-decoration: underline;
+	font-style: italic;
+}
+
+s {
+    text-decoration: line-through var(--tertiary-color) .15em;
 }
 
 hr {
@@ -155,7 +153,4 @@ hr {
 
 footer {
 	scroll-snap-align: end;
-}
-mark {
-	background-color: transparent !important;
 }

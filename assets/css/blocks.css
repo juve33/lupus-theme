@@ -14,9 +14,11 @@
     color: var(--tertiary-color) !important;
     background: fixed var(--primary-background-color);
 
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
     font-size: 1em;
-    text-transform: uppercase;
+    font-style: inherit;
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
 
     user-select: none;
 }
@@ -37,6 +39,13 @@
 .wp-block-cover {
     padding: 0 !important;
     min-height: unset !important;
+}
+
+.wp-block-cover__inner-container {
+    position: relative;
+    max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--standard-margin) .714285rem;
 }
 
 
@@ -99,8 +108,9 @@
 
     text-align: center;
 
-    font-family: var(--emphasized-font);
-    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
 
     user-select: none;
 }
@@ -173,26 +183,16 @@
 
 /* GROUP */
 
+.wp-block-group {
+    position: relative;
+}
+
 .wp-block-group.is-horizontal>p {
     margin-bottom: 0;
 }
 
-.wp-block-group__inner-container {
-    position: relative;
-    height: inherit;
-    min-height: inherit;
-    width: inherit;
-}
-
-.wrapper>.wp-block-group >.wp-block-group__inner-container>.wp-block-cover>.wp-block-cover__inner-container {
-    position: relative;
-	max-width: 1200px;
-	margin: var(--standard-margin) auto;
-	padding: 0;
-}
-
-.wrapper>.full-sized>.wp-block-group__inner-container>.wp-block-cover>.wp-block-cover__inner-container {
-	padding: 0 .714285rem;
+.wrapper>.wp-block-group {
+    overflow: visible;
 }
 
 
@@ -208,27 +208,25 @@ iframe {
 
 /* IMAGE */
 
-.wp-block-image,
-.wp-block-image figure {
+.wp-block-image {
     position: relative;
 }
 
-.wp-block-image figure,
 figure.wp-block-image {
     margin: 1.5rem auto !important;
     padding-bottom: .6rem;
     overflow: hidden;
 }
 
-.wp-block-image figure.alignleft {
+figure.wp-block-image.alignleft {
     margin: 1.5rem 1.5rem 1.5rem 0 !important;
 }
 
-.wp-block-image figure.alignright {
+figure.wp-block-image.alignright {
     margin: 1.5rem 0 1.5rem 1.5rem !important;
 }
 
-.wp-block-image figure::after {
+figure.wp-block-image::after {
     content: '';
 
     position: absolute;
@@ -253,13 +251,9 @@ figure.wp-block-image {
 }
 
 .wp-block-image.size-large::before,
-.wp-block-image .size-large::before,
 .wp-block-image.size-full::before,
-.wp-block-image .size-full::before,
 .wp-block-image.size-large::after,
-.wp-block-image .size-large::after,
-.wp-block-image.size-full::after,
-.wp-block-image .size-full::after {
+.wp-block-image.size-full::after {
     content: '';
 
     position: absolute;
@@ -272,9 +266,7 @@ figure.wp-block-image {
 }
 
 .wp-block-image.size-large::before,
-.wp-block-image .size-large::before,
-.wp-block-image.size-full::before,
-.wp-block-image .size-full::before {
+.wp-block-image.size-full::before {
     --animation-width: 60%;
 
     top: 1.8em;
@@ -283,9 +275,7 @@ figure.wp-block-image {
 }
 
 .wp-block-image.size-large::after,
-.wp-block-image .size-large::after,
-.wp-block-image.size-full::after,
-.wp-block-image .size-full::after {
+.wp-block-image.size-full::after {
     --animation-width: 40%;
 
     bottom: 1.8em;
@@ -297,17 +287,13 @@ figure.wp-block-image {
 
 @media (prefers-reduced-motion) {
     .wp-block-image.size-large::before,
-    .wp-block-image .size-large::before,
-    .wp-block-image.size-full::before,
-    .wp-block-image .size-full::before {
+    .wp-block-image.size-full::before {
         left: 0;
         right: calc(100% - var(--animation-width));
     }
 
-    .wp-block-image.size-large::after,
-    .wp-block-image .size-large::after,
-    .wp-block-image.size-full::after,
-    .wp-block-image .size-full::after {
+    .wp-block-image.size-large::after
+    .wp-block-image.size-full::after {
         left: calc(100% - var(--animation-width));
         right: 0;
     }
@@ -315,27 +301,19 @@ figure.wp-block-image {
 
 @media (prefers-reduced-motion: no-preference) {
     .wp-block-image.size-large:hover::before,
-    .wp-block-image .size-large:hover::before,
     .wp-block-image.size-full:hover::before,
-    .wp-block-image .size-full:hover::before,
     .wp-block-image.size-large:hover::after,
-    .wp-block-image .size-large:hover::after,
-    .wp-block-image.size-full:hover::after,
-    .wp-block-image .size-full:hover::after {
+    .wp-block-image.size-full:hover::after {
         animation: .4s .2s reverse;
     }
 
     .wp-block-image.size-large:hover::before,
-    .wp-block-image .size-large:hover::before,
-    .wp-block-image.size-full:hover::before,
-    .wp-block-image .size-full:hover::before {
+    .wp-block-image.size-full:hover::before {
         animation-name: image-hover-left;
     }
 
     .wp-block-image.size-large:hover::after,
-    .wp-block-image .size-large:hover::after,
-    .wp-block-image.size-full:hover::after,
-    .wp-block-image .size-full:hover::after {
+    .wp-block-image.size-full:hover::after {
         animation-name: image-hover-right;
     }
 }
@@ -375,21 +353,18 @@ figure.wp-block-image {
 }
 
 @media (min-width: 601px) {
-    .wp-block-image.size-large,
-    .wp-block-image .size-large {
+    .wp-block-image.size-large {
         max-width: 60%;
     }
 }
 
 @media (min-width: 992px) {
-    .wp-block-image.size-large,
-    .wp-block-image .size-large {
+    .wp-block-image.size-large {
         max-width: 50%;
     }
 }
 
-.wp-block-image.size-full,
-.wp-block-image .size-full {
+.wp-block-image.size-full {
     max-width: 100%;
 }
 
@@ -400,7 +375,6 @@ figure.wp-block-image {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .wp-block-image figure:hover img,
     figure.wp-block-image:hover img {
         transform: scale(1.05);
     }
@@ -415,6 +389,7 @@ figure.wp-block-image {
 
     color: var(--accent-color) !important;
     font-size: 1rem !important;
+    font-weight: 300;
     
     backdrop-filter: blur(.5rem);
 }
@@ -432,9 +407,7 @@ figure.wp-block-image {
 }
 
 .wp-block-image.size-large figcaption,
-.wp-block-image .size-large figcaption,
-.wp-block-image.size-full figcaption,
-.wp-block-image .size-full figcaption {
+.wp-block-image.size-full figcaption {
     bottom: 0;
 }
 
@@ -465,10 +438,6 @@ ul.wp-block-list li::marker {
 
 
 /* MEDIA & TEXT */
-
-.wp-block-cover .wp-block-media-text {
-    padding: 0 .714285rem;
-}
 
 .wp-block-media-text>figure {
     position: relative;
@@ -576,7 +545,7 @@ ul.wp-block-list li::marker {
 .wp-block-quote p {
     position: relative;
 
-    font-family: var(--emphasized-font);
+    font-family: var(--secondary-font);
     font-size: 1.25rem;
     color: var(--primary-color);
     vertical-align: middle;

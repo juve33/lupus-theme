@@ -8,12 +8,12 @@
 ?>
 <!-- wp:group {"tagName":"section","className":"full-sized full-width","layout":{"type":"constrained"}} -->
 <section class="wp-block-group full-sized full-width">
-    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-    <p class="has-text-align-left subtitle has-small-font-size" style="text-transform:uppercase"><?php esc_html_e('Subtitle', 'lupus') ?></p>
+    <!-- wp:paragraph {"align":"left","placeholder":"Subtitle (please delete this block if you don't use it)","className":"subtitle","fontSize":"small"} -->
+    <p class="has-text-align-left subtitle has-small-font-size"><?php esc_html_e('Subtitle', 'lupus') ?></p>
     <!-- /wp:paragraph -->
     
-    <!-- wp:heading {"level":3,"placeholder":"Title","style":{"typography":{"textTransform":"uppercase"}}} -->
-    <h3 class="wp-block-heading" style="text-transform:uppercase"><?php esc_html_e('Title', 'lupus') ?></h3>
+    <!-- wp:heading {"level":3,"placeholder":"Title"} -->
+    <h3 class="wp-block-heading"><?php esc_html_e('Title', 'lupus') ?></h3>
     <!-- /wp:heading -->
     
     <!-- wp:paragraph {"placeholder":"Content…"} -->
