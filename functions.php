@@ -49,6 +49,19 @@ function lupustheme_empty_navigation() {
 
 
 
+function lupustheme_custom_mime_types( $mimes ) {
+	
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['woff2']  = 'font/woff2';
+	$mimes['woff']  = 'font/woff';
+
+	return $mimes;
+}
+
+add_filter( 'upload_mimes', 'lupustheme_custom_mime_types' );
+
+
+
 function lupustheme_customize_register($wp_customize) {
 
     $wp_customize->add_setting(
@@ -64,6 +77,7 @@ function lupustheme_customize_register($wp_customize) {
                 'description' => 'Logo that replaces the main logo in sections with a logo as background',
                 'section' => 'title_tagline',
                 'settings' => 'alternative_logo',
+                'mime_type' => 'image'
             )
         )
     );
@@ -71,7 +85,7 @@ function lupustheme_customize_register($wp_customize) {
 
 
     $wp_customize->add_setting(
-        'page_title_seperator',
+        'page_title_separator',
         array(
             'default' => "-"
         )
@@ -79,7 +93,7 @@ function lupustheme_customize_register($wp_customize) {
     $wp_customize->add_control(
         new WP_Customize_Control(
             $wp_customize,
-            'page_title_seperator',
+            'page_title_separator',
             array(
                 'label' => 'Page Title Seperator',
                 'description' => 
@@ -87,7 +101,7 @@ function lupustheme_customize_register($wp_customize) {
                                 Can be a string of symbols; can also include emojis and such things<br/>
                                 Spaces are not required as they are automatically added on both sides of the symbol',
                 'section' => 'title_tagline',
-                'settings' => 'page_title_seperator',
+                'settings' => 'page_title_separator',
             )
         )
     );
@@ -157,6 +171,138 @@ function lupustheme_customize_register($wp_customize) {
 
 
     $wp_customize->add_section(
+        'fonts',
+        array(
+            'title' => 'Fonts',
+            'description' =>
+                "Upload your custom fonts here.<br/>
+                If you don't want your font to have a certain style (e.g. italics or a bold version), you can simply select a file you already selected for that font.<br/>
+                <strong>IMPORTANT: Upload both the .woff- AND the .woff2-files in the uploads menu, even though you can only select the .WOFF-FILE here</strong>"
+        )
+    );
+
+    $wp_customize->add_setting(
+        'emphasized_text_transform',
+        array(
+            'default' => 'uppercase'
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'emphasized_text_transform',
+            array(
+                'label' => 'Emphasized Text Transform',
+                'type' => 'radio',
+                'choices'   => array(
+                    'none' => 'None',
+                    'capitalize' => 'Capitalize (Transforms the first character of each word to uppercase)',
+                    'uppercase' => 'Uppercase',
+                    'lowercase' => 'Lowercase',
+                ),
+                'description' => 'Determines the text transform of emphasized texts such as subtitles.',
+                'section' => 'fonts',
+                'settings' => 'emphasized_text_transform',
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'emphasized_letter_spacing',
+        array(
+            'default' => '0.0'
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'emphasized_letter_spacing',
+            array(
+                'label' => 'Emphasized Letter Spacing',
+                'description' => 'Alter the letter spacing for emphasized texts such as headlines<br/>This alters different texts than the previous option<br/>Syntax Example: -0.03',
+                'section' => 'fonts',
+                'settings' => 'emphasized_letter_spacing',
+            )
+        )
+    );
+
+    $font_names = array(
+        array( 'Header Font Name', 'header_font_name', 'Used for the bigger headers' ),
+        array( 'Main Font Name', 'main_font_name', 'Used for the vast majority of texts' ),
+        array( 'Secondary Font Name', 'secondary_font_name', 'Used for minor, yet emphasized texts such as subtitles' ),
+        array( 'Details Font Name', 'details_font_name', 'Used for decorational purposes such as the background text in the background text patterns' ),
+    );
+
+    foreach ( $font_names as $font_name ) :
+        $wp_customize->add_setting(
+            $font_name[1],
+            array(
+                'default' => $font_name[0]
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                $font_name[1],
+                array(
+                    'label' => $font_name[0],
+                    'description' => $font_name[2],
+                    'section' => 'fonts',
+                    'settings' => $font_name[1],
+                )
+            )
+        );
+    endforeach;
+
+    $font_files = array(
+        array( 'font_header_normal', 'Header Font', 'normal' ),
+        array( 'font_header_italics', 'Header Font', 'italics' ),
+
+
+        array( 'font_main_normal_bold', 'Main Font', 'normal bold' ),
+        array( 'font_main_normal_regular', 'Main Font', 'normal regular' ),
+        array( 'font_main_normal_light', 'Main Font', 'normal light' ),
+
+        array( 'font_main_italics_bold', 'Main Font', 'italics bold' ),
+        array( 'font_main_italics_regular', 'Main Font', 'italics regular' ),
+        array( 'font_main_italics_light', 'Main Font', 'italics light' ),
+
+
+        array( 'font_secondary_normal_bold', 'Secondary Font', 'normal bold' ),
+        array( 'font_secondary_normal_regular', 'Secondary Font', 'normal regular' ),
+        array( 'font_secondary_normal_light', 'Secondary Font', 'normal light' ),
+
+        array( 'font_secondary_italics_bold', 'Secondary Font', 'italics bold' ),
+        array( 'font_secondary_italics_regular', 'Secondary Font', 'italics regular' ),
+        array( 'font_secondary_italics_light', 'Secondary Font', 'italics light' ),
+
+        array( 'font_details_normal', 'Details Font', 'normal' ),
+        array( 'font_details_italics', 'Details Font', 'italics' ),
+    );
+
+    foreach ( $font_files as $font_file ) :
+        $wp_customize->add_setting(
+            $font_file[0],
+            array()
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Media_Control(
+                $wp_customize,
+                $font_file[0],
+                array(
+                    'label' => $font_file[1],
+                    'description' => $font_file[2],
+                    'section' => 'fonts',
+                    'settings' => $font_file[0],
+                    'mime_type' => 'font/woff'
+                )
+            )
+        );
+    endforeach;
+
+
+
+    $wp_customize->add_section(
         'socialmedia',
         array(
             'title' => 'Social Media',
@@ -200,6 +346,111 @@ add_action('customize_register', 'lupustheme_customize_register');
 
 
 remove_action( 'wp_head', '_wp_render_title_tag', 1 );
+
+
+
+function lupustheme_custom_fonts() {
+
+    $custom_fonts = array();
+
+    echo '<style type="text/css" id="lupustheme-fonts">';
+
+    $font_files = array(
+        array( 'header-font', 'header_font_name','font_header_normal', 'normal' ),
+        array( 'header-font', 'header_font_name','font_header_italics', 'italic' ),
+
+
+        array( 'main-font', 'main_font_name','font_main_normal_bold', 'normal', 'bold' ),
+        array( 'main-font', 'main_font_name','font_main_normal_regular', 'normal', 'regular' ),
+        array( 'main-font', 'main_font_name','font_main_normal_light', 'normal', 'light' ),
+
+        array( 'main-font', 'main_font_name','font_main_italics_bold', 'italic', 'bold' ),
+        array( 'main-font', 'main_font_name','font_main_italics_regular', 'italic', 'regular' ),
+        array( 'main-font', 'main_font_name','font_main_italics_light', 'italic', 'light' ),
+
+
+        array( 'secondary-font', 'secondary_font_name','font_secondary_normal_bold', 'normal', 'bold' ),
+        array( 'secondary-font', 'secondary_font_name','font_secondary_normal_regular', 'normal', 'regular' ),
+        array( 'secondary-font', 'secondary_font_name','font_secondary_normal_light', 'normal', 'light' ),
+
+        array( 'secondary-font', 'secondary_font_name','font_secondary_italics_bold', 'italic', 'bold' ),
+        array( 'secondary-font', 'secondary_font_name','font_secondary_italics_regular', 'italic', 'regular' ),
+        array( 'secondary-font', 'secondary_font_name','font_secondary_italics_light', 'italic', 'light' ),
+
+
+        array( 'details-font', 'details_font_name','font_details_normal', 'normal' ),
+        array( 'details-font', 'details_font_name','font_details_italics', 'italic' ),
+    );
+
+    foreach ( $font_files as $font_file ) :
+        $font_id = get_theme_mod( $font_file[2] );
+        $font_url = wp_get_attachment_url( $font_id );
+
+        if ( $font_url ) {
+
+            echo '@font-face{ ';
+
+            $font_name = get_theme_mod( $font_file[1] );
+            if ( $font_name ) {
+                echo 'font-family: "' . $font_name . '"; ';
+                array_push( $custom_fonts, array( $font_file[0], $font_name ) );
+            }
+            else {
+                echo 'font-family: "' . $font_file[1] . '"; ';
+                array_push( $custom_fonts, array( $font_file[0], $font_file[1] ) );
+            }
+
+            echo 'src: url("' . $font_url . '2") format("woff2"), url("' . $font_url . '") format("woff"); ';
+            
+            echo 'font-display: swap; ';
+
+            echo 'font-style: ' . $font_file[3] . '; ';
+
+            if ( count($font_file) == 5 ) {
+                if ( $font_file[4] == 'bold' ) {
+                    echo 'font-weight: 600 1000; ';
+                }
+                else {
+                    if ( $font_file[4] == 'light' ) {
+                        echo 'font-weight: 100 300; ';
+                    }
+                    else {
+                        echo 'font-weight: 400 500; ';
+                    }
+                }
+            }
+            else {
+                echo 'font-weight: 1 1000; ';
+            }
+
+            echo '} ';
+
+        }
+    endforeach;
+
+
+    $custom_fonts_unique = array_unique( $custom_fonts, SORT_REGULAR );
+    echo ':root { ';
+    
+    foreach ( $custom_fonts_unique as $custom_font ) :
+        echo '--' . $custom_font[0] . ': ' . $custom_font[1] . ',"Helvetica Neue",Helvetica,Arial,sans-serif; ';
+    endforeach;
+
+    $emphasized_text_transform = get_theme_mod( 'emphasized_text_transform' );
+    if ( $emphasized_text_transform ) {
+        echo '--emphasized-texttransform: ' . $emphasized_text_transform . '; ';
+    }
+
+    $emphasized_letter_spacing = get_theme_mod( 'emphasized_letter_spacing' );
+    if ( $emphasized_letter_spacing ) {
+        echo '--emphasized-letterspacing: ' . $emphasized_letter_spacing . 'em; ';
+    }
+
+    echo '}</style>';
+
+}
+
+add_action( 'wp_head', 'lupustheme_custom_fonts');
 
 
 
@@ -330,9 +581,9 @@ function lupustheme_add_custom_separator ( $currentSeparators ) {
 
     $addSeparator = [];
 
-	$page_title_seperator = get_theme_mod( 'page_title_seperator' );
+	$page_title_separator = get_theme_mod( 'page_title_separator' );
 
-    array_push( $addSeparator, esc_attr( $page_title_seperator ) );
+    array_push( $addSeparator, esc_attr( $page_title_separator ) );
 
     $newSeparators = array_unique( array_merge( $currentSeparators, $addSeparator ));
     return $newSeparators;
