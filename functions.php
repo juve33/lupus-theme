@@ -679,7 +679,7 @@ add_action('wp_enqueue_scripts', 'lupustheme_register_styles');
 function lupustheme_register_scripts() {
 
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true );
+    wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', array(), '3.4.1', true );
 
     $scripts = array(
         array( 'main', 'main.js' ),
