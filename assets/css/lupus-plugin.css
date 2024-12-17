@@ -249,16 +249,19 @@
     font-style: inherit;
 }
 
-.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>p,
-.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h2,
-.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h3,
-.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h4,
-.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h5,
-.wp-block-lupus-plugin-section.image .wp-block-media-text__content {
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>* {
     backdrop-filter: blur(.5rem);
+}
+
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>.wp-block-media-text {
+    backdrop-filter: unset;
 }
 
 .wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>p,
 .wp-block-lupus-plugin-section.image .wp-block-media-text__content {
     padding: 1rem 1.5rem !important;
+}
+
+.wp-block-lupus-plugin-section.image .wp-block-media-text__content {
+    backdrop-filter: blur(.5rem);
 }
