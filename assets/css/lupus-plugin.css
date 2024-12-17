@@ -1,0 +1,264 @@
+.wp-block-lupus-plugin-section {
+    width: 100% !important;
+    max-width: unset !important;
+	margin: 0 !important;
+	padding: var(--standard-margin) 0 !important;
+}
+
+.wp-block-lupus-plugin-section__inner {
+    width: unset !important;
+    max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 .714285rem;
+	box-sizing: border-box;
+}
+
+.wp-block-lupus-plugin-section__before-after {
+    display: block !important;
+
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0;
+    width: 100%;
+    max-width: unset !important;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.wp-block-lupus-plugin-section__before-after.image {
+    display: none !important;
+}
+
+.wp-block-lupus-plugin-section__before-after.alternative-colors {
+    background: fixed var(--primary-color);
+}
+
+.wp-block-lupus-plugin-section__before-after.alternative-colors::before,
+.wp-block-lupus-plugin-section__before-after::after {
+    content: '';
+
+    position: absolute;
+    height: .6em;
+}
+
+.wp-block-lupus-plugin-section__before-after.alternative-colors::before {
+    top: 0;
+
+    background: var(--primary-background-color);
+}
+
+.wp-block-lupus-plugin-section__before-after::after {
+    bottom: 0;
+
+    background: var(--tertiary-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view(block var(--nav-height-small) 0)) {
+        .wp-block-lupus-plugin-section__before-after {
+            height: .6em;
+
+            overflow: initial;
+        }
+
+        .wp-block-lupus-plugin-section__before-after.alternative-colors {
+            height: 1.8em;
+        }
+
+        .wp-block-lupus-plugin-section__before-after::before,
+        .wp-block-lupus-plugin-section__before-after::after {
+            left: 0;
+            right: 100%;
+
+            animation: scroll-bar-left 1ms linear forwards;
+            animation-timeline: view(block var(--nav-height-small) 0);
+        }
+
+        .wp-block-lupus-plugin-section__before-after::before,
+        .wp-block-lupus-plugin-section__before-after:nth-of-type(even)::after {
+            left: unset;
+            right: 0;
+
+            animation-name: scroll-bar-right;
+        }
+
+        .wp-block-lupus-plugin-section__before-after:nth-of-type(even)::before {
+            left: 0;
+            right: unset;
+
+            animation-name: scroll-bar-left;
+        }
+    }
+}
+
+@keyframes scroll-bar-left {
+    from {
+        left: 0;
+        right: 100%;
+    }
+
+    50% {
+        left: 0;
+        right: 0;
+    }
+
+    to {
+        left: 100%;
+        right: 0;
+    }
+}
+
+@keyframes scroll-bar-right {
+    from {
+        left: 100%;
+        right: 0;
+    }
+
+    50% {
+        left: 0;
+        right: 0;
+    }
+
+    to {
+        left: 0;
+        right: 100%;
+    }
+}
+
+.wp-block-lupus-plugin-section.full-sized {
+    min-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
+    min-height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
+    overflow: hidden;
+
+	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
+}
+
+.wp-block-lupus-plugin-section.alternative-colors {
+    --alternative-font-color: var(--accent-color);
+    --alternative-background-color: var(--primary-color);
+}
+
+.wp-block-lupus-plugin-section.alternative-colors h2,
+.wp-block-lupus-plugin-section.alternative-colors h3,
+.wp-block-lupus-plugin-section.alternative-colors h4,
+.wp-block-lupus-plugin-section.alternative-colors h5 {
+    color: inherit !important;
+}
+
+.wp-block-lupus-plugin-section__logo-container {
+    background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 300px no-repeat !important;
+    background-image: var(--alternative-logo-src, var(--logo-src)) !important;
+}
+
+@media (min-width: 992px) {
+    .wp-block-lupus-plugin-section__logo-container {
+        background: fixed center calc(50% + (var(--nav-height-small) + var(--wordpress-support-bar)) / 2) / 500px no-repeat !important;
+        background-image: var(--alternative-logo-src, var(--logo-src)) !important;
+        opacity: 10% !important;
+    }
+}
+
+.wp-block-lupus-plugin-section__message-container {
+    font-family: var(--details-font);
+    font-size: 3rem !important;
+    text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+    .wp-block-lupus-plugin-section__message-container {
+        font-size: 4rem !important;
+        opacity: 10% !important;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .wp-block-lupus-plugin-section__message-container {
+        justify-content: unset !important;
+    }
+
+    .wp-block-lupus-plugin-section__message-line__inner {
+        animation: message-scroll calc(120s / var(--animation-speed-factor, 1)) linear infinite var(--animation-direction, forwards);
+    }
+
+    .wp-block-lupus-plugin-section__message-group:nth-of-type(odd) .wp-block-lupus-plugin-section__message-line:nth-of-type(even) .wp-block-lupus-plugin-section__message-line__inner,
+    .wp-block-lupus-plugin-section__message-group:nth-of-type(even) .wp-block-lupus-plugin-section__message-line:nth-of-type(odd) .wp-block-lupus-plugin-section__message-line__inner {
+        --animation-speed-factor: .5;
+    }
+}
+
+@keyframes message-scroll {
+    to {
+        transform: translate(-100%);
+    }
+}
+
+.wp-block-lupus-plugin-section.image {
+    color: var(--accent-color) !important;
+
+    scroll-margin: var(--nav-height-small) 0 0 !important;
+}
+
+.wp-block-lupus-plugin-section__image-overlay {
+    opacity: 1 !important;
+    background-color: unset !important;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)) !important;
+}
+
+.wp-block-lupus-plugin-section__image-container {
+    background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small))) !important;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .wp-block-lupus-plugin-section__image-container {
+        background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small)) / 2) !important;
+    }
+}
+
+.wp-block-lupus-plugin-section.image h2,
+.wp-block-lupus-plugin-section.image h3,
+.wp-block-lupus-plugin-section.image h4,
+.wp-block-lupus-plugin-section.image h5 {
+    color: inherit !important;
+}
+
+.wp-block-lupus-plugin-section__photocredit {
+    padding: .125em .5em !important;
+    font-size: 1rem !important;
+    font-style: normal;
+    font-weight: 300;
+
+    backdrop-filter: blur(.5rem);
+}
+
+@supports not (backdrop-filter: blur(.5rem)) {
+    .wp-block-lupus-plugin-section__photocredit {
+        background-color: color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
+    }
+}
+
+@supports not ((backdrop-filter: blur(.5rem)) or (background-color: color-mix(in srgb, var(--primary-color) 60%, transparent))) {
+    .wp-block-lupus-plugin-section__photocredit {
+        background-color: var(--primary-color) !important;
+    }
+}
+
+.wp-block-lupus-plugin-section__photocredit a {
+    font-style: inherit;
+}
+
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>p,
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h2,
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h3,
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h4,
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>h5,
+.wp-block-lupus-plugin-section.image .wp-block-media-text__content {
+    backdrop-filter: blur(.5rem);
+}
+
+.wp-block-lupus-plugin-section.image .wp-block-lupus-plugin-section__inner>p,
+.wp-block-lupus-plugin-section.image .wp-block-media-text__content {
+    padding: 1rem 1.5rem !important;
+}

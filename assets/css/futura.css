@@ -1,10 +1,10 @@
 @font-face {
 	font-family: "Futura";
 	src:
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.eot?#iefix") format("eot"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff2") format("woff2"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff") format("woff"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.ttf") format("truetype");
+		url("../fonts/futura-extra-bold.eot?#iefix") format("eot"),
+		url("../fonts/futura-extra-bold.woff2") format("woff2"),
+		url("../fonts/futura-extra-bold.woff") format("woff"),
+		url("../fonts/futura-extra-bold.ttf") format("truetype");
     
     font-style: normal;
 	font-weight: 1 1000;
@@ -13,10 +13,10 @@
 @font-face {
 	font-family: "Futura";
 	src:
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.eot?#iefix") format("eot"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff2") format("woff2"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.woff") format("woff"),
-		url("https://fcsp.azureedge.net/fonts/futura-extra-bold.ttf") format("truetype");
+		url("../fonts/futura-extra-bold.eot?#iefix") format("eot"),
+		url("../fonts/futura-extra-bold.woff2") format("woff2"),
+		url("../fonts/futura-extra-bold.woff") format("woff"),
+		url("../fonts/futura-extra-bold.ttf") format("truetype");
     
     font-style: italic;
 	font-weight: 1 1000;

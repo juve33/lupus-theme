@@ -62,27 +62,7 @@ add_filter( 'upload_mimes', 'lupustheme_custom_mime_types' );
 
 
 
-function lupustheme_customize_register($wp_customize) {
-
-    $wp_customize->add_setting(
-        'alternative_logo',
-        array()
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Media_Control(
-            $wp_customize,
-            'alternative_logo',
-            array(
-                'label' => 'Alternative Logo',
-                'description' => 'Logo that replaces the main logo in sections with a logo as background',
-                'section' => 'title_tagline',
-                'settings' => 'alternative_logo',
-                'mime_type' => 'image'
-            )
-        )
-    );
-
-
+function lupustheme_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting(
         'page_title_separator',
@@ -456,7 +436,7 @@ add_action( 'wp_head', 'lupustheme_custom_fonts');
 
 function lupustheme_custom_css_properties() {
 
-    echo '<style type="text/css" id="lupustheme-colors">:root { ';
+    echo '<style type="text/css" id="lupustheme-variables">:root { ';
 
     $colors = array(
         array( 'primary_color', 'primary-color' ),
@@ -472,24 +452,6 @@ function lupustheme_custom_css_properties() {
             echo '--' . $color[1] . ': ' . esc_attr( $theme_mod_color ) . '; ';
         }
     endforeach;
-
-    if( function_exists( 'the_custom_logo' ) ) {
-
-		$custom_logo_id = get_theme_mod( 'custom_logo' );
-		$logo = wp_get_attachment_image_src( $custom_logo_id, 500 );
-
-        if ( $logo ) {
-            echo '--logo-src: url(' . $logo[0] . '); ';
-        }
-
-	}
-
-    $alternative_custom_logo_id = get_theme_mod( 'alternative_logo' );
-    $alternative_logo = wp_get_attachment_image_src( $alternative_custom_logo_id, 500 );
-
-    if ( $alternative_logo ) {
-        echo '--alternative-logo-src: url(' . $alternative_logo[0] . '); ';
-    }
 
     echo '--hoop-src: url(' . get_template_directory_uri() . '/assets/images/hoop.svg); ';
     echo '--grass-src: url(' . get_template_directory_uri() . '/assets/images/grass.svg); ';
@@ -566,7 +528,8 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'core/video',
         'tablepress/table',
         'yoast/faq-block',
-        'yoast/how-to-block'
+        'yoast/how-to-block',
+        'lupus-plugin/section'
 	);
 
 	return $allowed_block_types;
@@ -658,6 +621,7 @@ function lupustheme_register_styles() {
     }
     
     $plugin_stylesheets = array(
+        array( 'lupus-plugin', 'lupus-plugin.css', 'lupus-plugin/lupus-plugin.php' ),
         array( 'simple-calendar', 'simple-calendar.css', 'google-calendar-events/google-calendar-events.php' ),
         array( 'tablepress', 'tablepress.css', 'tablepress/tablepress.php' ),
         array( 'translatepress', 'translatepress.css', 'translatepress-multilingual/index.php' ),
