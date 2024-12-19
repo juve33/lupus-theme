@@ -529,6 +529,7 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'tablepress/table',
         'yoast/faq-block',
         'yoast/how-to-block',
+        'lupus-plugin/header',
         'lupus-plugin/section'
 	);
 

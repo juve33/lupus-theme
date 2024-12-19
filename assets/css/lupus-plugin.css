@@ -1,3 +1,4 @@
+.wp-block-lupus-plugin-header,
 .wp-block-lupus-plugin-section {
     width: 100% !important;
     max-width: unset !important;
@@ -5,6 +6,7 @@
 	padding: var(--standard-margin) 0 !important;
 }
 
+.wp-block-lupus-plugin-header__inner,
 .wp-block-lupus-plugin-section__inner {
     width: unset !important;
     max-width: 1200px;
@@ -128,6 +130,7 @@
     }
 }
 
+.wp-block-lupus-plugin-header.full-sized,
 .wp-block-lupus-plugin-section.full-sized {
     min-height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
     min-height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
