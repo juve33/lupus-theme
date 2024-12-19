@@ -186,16 +186,21 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
 .simcal-calendar-list .simcal-day-label>span {
     padding: .6em 1em !important;
     border: 2px solid currentColor;
-    border-color: var(--tertiary-color);
     border-radius: 0;
 
     color: var(--tertiary-color) !important;
-    background: fixed var(--primary-background-color) !important;
+    background: none !important;
 
     font-family: var(--secondary-font);
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
+}
+
+.alternative-colors .simcal-calendar-list .simcal-day-label>span {
+    color: var(--accent-color) !important;
+    border-color: var(--tertiary-color);
+    background: fixed var(--tertiary-color) !important;
 }
 
 .simcal-calendar-list .simcal-day-label::before {
