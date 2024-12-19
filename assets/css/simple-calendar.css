@@ -49,11 +49,10 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
 .simcal-calendar-grid .simcal-week-day {
     padding: .6em 0 !important;
     border: 2px solid currentColor;
-    border-color: var(--tertiary-color);
     border-radius: 0;
 
     color: var(--tertiary-color) !important;
-    background: fixed var(--primary-background-color);
+    background: none;
 
     font-family: var(--secondary-font);
     font-weight: bold;
@@ -67,9 +66,13 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     }
 }
 
+.alternative-colors .simcal-calendar-grid .simcal-week-day {
+    color: var(--accent-color) !important;
+}
+
 .simcal-calendar-grid .simcal-day {
     --height-factor: 2;
-    background: fixed var(--primary-background-color) !important;
+    background: none !important;
 }
 
 @media (min-width: 992px) {
@@ -105,11 +108,10 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
 .simcal-calendar-grid .simcal-day-label {
     padding: .6em 1em !important;
     border: 2px solid currentColor;
-    border-color: var(--tertiary-color);
     border-radius: 0;
 
     color: var(--tertiary-color) !important;
-    background: fixed var(--primary-background-color) !important;
+    background: none !important;
 
     font-family: var(--secondary-font);
     font-weight: bold;
@@ -117,10 +119,15 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     text-transform: var(--emphasized-texttransform);
 }
 
+.alternative-colors .simcal-calendar-grid .simcal-day-label {
+    color: var(--accent-color) !important;
+}
+
 .simcal-calendar-grid .simcal-day:hover .simcal-day-label,
 .simcal-calendar-grid .simcal-today .simcal-day-label {
     color: var(--accent-color) !important;
     background: var(--tertiary-color) !important;
+    border-color: var(--tertiary-color);
 }
 
 .simcal-calendar-grid .simcal-events {
