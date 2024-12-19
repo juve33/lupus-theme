@@ -366,6 +366,7 @@ figure.wp-block-image::after {
 
 .wp-block-image.size-full {
     max-width: 100%;
+    width: fit-content;
 }
 
 .wp-block-image img {
