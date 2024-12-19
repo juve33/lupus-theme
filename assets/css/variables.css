@@ -67,7 +67,7 @@
 }
 
 .trans-pride {
-    --tertiary-color: linear-gradient(120deg, red, orange, #dd0, green, #0dd, blue, purple) !important;
+    --tertiary-color: linear-gradient(red, orange, #dd0, green, #0dd, blue, purple) !important;
     --primary-background-color: linear-gradient(120deg, #5BCEFA, #F5A9B8, #fff, #F5A9B8, #5BCEFA) !important;
 }
 
@@ -77,7 +77,7 @@
     }
     
     .trans-pride {
-        --tertiary-color: linear-gradient(150deg, red, orange, #dd0, green, #0dd, blue, purple) !important;
+        --tertiary-color: linear-gradient(red, orange, #dd0, green, #0dd, blue, purple) !important;
         --primary-background-color: linear-gradient(150deg, #5BCEFA, #F5A9B8, #fff, #F5A9B8, #5BCEFA) !important;
     }
 }
