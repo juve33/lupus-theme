@@ -66,10 +66,6 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     }
 }
 
-.alternative-colors .simcal-calendar-grid .simcal-week-day {
-    color: var(--accent-color) !important;
-}
-
 .simcal-calendar-grid .simcal-day {
     --height-factor: 2;
     background: none !important;
@@ -117,10 +113,6 @@ div.wrapper .simcal-nav .simcal-nav-button:hover {
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
-}
-
-.alternative-colors .simcal-calendar-grid .simcal-day-label {
-    color: var(--accent-color) !important;
 }
 
 .simcal-calendar-grid .simcal-day:hover .simcal-day-label,

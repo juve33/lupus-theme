@@ -1,5 +1,5 @@
 .tablepress {
-    background: fixed var(--primary-background-color);
+    background: none;
 }
 
 .tablepress * {
@@ -68,7 +68,7 @@
     font-weight: bold;
     text-transform: var(--emphasized-texttransform);
 
-    background: fixed var(--primary-background-color);
+    background: none;
 }
 
 .dataTables_length select,
