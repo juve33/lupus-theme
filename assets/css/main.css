@@ -77,7 +77,7 @@ main>.wrapper>* {
 }
 
 .wrapper>:first-child {
-    padding-top: calc(var(--nav-height-big) - var(--nav-height-small));
+    padding-top: calc(var(--nav-height-big) - var(--nav-height-small)) !important;
 
 	scroll-snap-align: start;
 	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
