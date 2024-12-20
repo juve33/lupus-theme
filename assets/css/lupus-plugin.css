@@ -6,13 +6,96 @@
 	padding: var(--standard-margin) 0 !important;
 }
 
+.wp-block-lupus-plugin-header,
+.wp-block-lupus-plugin-header * {
+    color: var(--accent-color);
+}
+
+.wp-block-lupus-plugin-header {
+    padding-bottom: 0 !important;
+}
+
 .wp-block-lupus-plugin-header__inner,
 .wp-block-lupus-plugin-section__inner {
     width: unset !important;
     max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 .714285rem;
+	padding-inline: .714285rem;
 	box-sizing: border-box;
+}
+
+.wp-block-lupus-plugin-header__inner {
+    font-size: 4rem;
+}
+
+@media (max-width: 1200px) {
+    .wp-block-lupus-plugin-header__inner {
+        font-size: 3rem;
+    }
+}
+
+.full-sized .wp-block-lupus-plugin-header__inner {
+    top: 20%;
+}
+
+.wp-block-lupus-plugin-header .subtitle {
+    width: 50%;
+    
+    font-size: 0.33333em !important;
+    color: inherit;
+}
+
+@media (max-width: 991px) {
+    .wp-block-lupus-plugin-header .subtitle {
+        width: 60%;
+    }
+}
+
+@media (max-width: 543px) {
+    .wp-block-lupus-plugin-header .subtitle {
+        width: 85%;
+    }
+}
+
+@media (max-width: 600px) {
+    .wp-block-lupus-plugin-header .subtitle::after {
+        content: '';
+    }
+
+    .wp-block-lupus-plugin-header .subtitle {
+        color: inherit;
+    }
+}
+
+.wp-block-lupus-plugin-header h1 {
+    position: relative;
+}
+
+.wp-block-lupus-plugin-header h1:not(.subtitle+h1)::before {
+    content: '';
+
+    position: absolute;
+    top: -.4em;
+    width: 50%;
+    height: .2em;
+
+    background: var(--tertiary-color) !important;
+}
+
+@media (max-width: 991px) {
+    .wp-block-lupus-plugin-header h1:not(.subtitle+h1):before {
+        width: 60%;
+    }
+}
+
+@media (max-width: 543px) {
+    .wp-block-lupus-plugin-header h1:not(.subtitle+h1)::before {
+        width: 80%;
+    }
+}
+
+.wp-block-lupus-plugin-header__inner p {
+    font-size: 1rem;
 }
 
 .wp-block-lupus-plugin-section__before-after {
@@ -139,6 +222,10 @@
 	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
 }
 
+.wp-block-lupus-plugin-header.full-sized{
+    height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
+    height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;}
+
 .wp-block-lupus-plugin-section.alternative-colors {
     --alternative-font-color: var(--accent-color);
     --alternative-background-color: var(--primary-color);
@@ -204,17 +291,24 @@
     scroll-margin: var(--nav-height-small) 0 0 !important;
 }
 
-.wp-block-lupus-plugin-section__image-overlay {
+.wp-block-lupus-plugin-header__image-overlay,
+    .wp-block-lupus-plugin-section__image-overlay {
     opacity: 1 !important;
     background-color: unset !important;
     background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)) !important;
 }
 
-.wp-block-lupus-plugin-section__image-container {
+.wp-block-lupus-plugin-header__image-container {
+    background-position: 50% calc(50% + var(--nav-height-big)) !important;
+}
+
+.wp-block-lupus-plugin-header.image-fixed .wp-block-lupus-plugin-header__image-container,
+.wp-block-lupus-plugin-section.image-fixed .wp-block-lupus-plugin-section__image-container {
     background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small))) !important;
 }
 
 @media (max-aspect-ratio: 1/1) {
+    .wp-block-lupus-plugin-header__image-container,
     .wp-block-lupus-plugin-section__image-container {
         background-position: 50% calc(50% + (var(--nav-height-big) - var(--nav-height-small)) / 2) !important;
     }
@@ -227,7 +321,8 @@
     color: inherit !important;
 }
 
-.wp-block-lupus-plugin-section__photocredit {
+.wp-block-lupus-plugin-header__photocredit,
+    .wp-block-lupus-plugin-section__photocredit {
     padding: .125em .5em !important;
     font-size: 1rem !important;
     font-style: normal;
@@ -237,18 +332,21 @@
 }
 
 @supports not (backdrop-filter: blur(.5rem)) {
-    .wp-block-lupus-plugin-section__photocredit {
+    .wp-block-lupus-plugin-header__photocredit,
+        .wp-block-lupus-plugin-section__photocredit {
         background-color: color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
     }
 }
 
 @supports not ((backdrop-filter: blur(.5rem)) or (background-color: color-mix(in srgb, var(--primary-color) 60%, transparent))) {
-    .wp-block-lupus-plugin-section__photocredit {
+    .wp-block-lupus-plugin-header__photocredit,
+        .wp-block-lupus-plugin-section__photocredit {
         background-color: var(--primary-color) !important;
     }
 }
 
-.wp-block-lupus-plugin-section__photocredit a {
+.wp-block-lupus-plugin-header__photocredit a,
+    .wp-block-lupus-plugin-section__photocredit a {
     font-style: inherit;
 }
 

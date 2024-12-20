@@ -605,7 +605,6 @@ function lupustheme_register_styles() {
         array( 'nav', 'nav.css' ),
         array( 'blocks', 'blocks.css' ),
         array( 'general-classes', 'general-classes.css' ),
-        array( 'patterns', 'patterns.css' ),
         array( 'footer', 'footer.css' ),
     );
 
