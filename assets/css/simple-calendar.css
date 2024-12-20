@@ -53,11 +53,11 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
 
 .simcal-calendar-grid .simcal-week-day {
     padding: .6em 0 !important;
-    border: 2px solid currentColor;
+    border: 2px solid var(--tertiary-color);
     border-radius: 0;
 
-    color: var(--tertiary-color) !important;
-    background: none;
+    color: var(--accent-color) !important;
+    background: fixed var(--tertiary-color);
 
     font-family: var(--secondary-font);
     font-weight: bold;
@@ -69,12 +69,6 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
     .simcal-calendar-grid .simcal-week-day {
         padding: .6em 1em !important;
     }
-}
-
-.alternative-colors .simcal-calendar-grid .simcal-week-day {
-    color: var(--accent-color) !important;
-    background: fixed var(--tertiary-color);
-    border-color: var(--tertiary-color);
 }
 
 .simcal-calendar-grid .simcal-day {
