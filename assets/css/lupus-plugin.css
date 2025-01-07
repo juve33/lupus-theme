@@ -197,7 +197,8 @@
 	scroll-margin: calc(var(--nav-height-small)) 0 0 !important;
 }
 
-.wp-block-lupus-plugin-header.full-sized{
+.wp-block-lupus-plugin-header.full-sized,
+.wp-block-lupus-plugin-horizontal-scroll .wp-block-lupus-plugin-section {
     height: calc(100vh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;
     height: calc(100svh - var(--nav-height-small) - var(--wordpress-support-bar)) !important;}
 
@@ -526,4 +527,12 @@
     to {
         margin-left: .6em;
     }
+}
+
+/* HORIZONTAL SCROLL */
+
+.wp-block-lupus-plugin-horizontal-scroll {
+    width: 100% !important;
+    max-width: unset !important;
+    padding: 0 !important;
 }

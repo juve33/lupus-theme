@@ -530,6 +530,7 @@ function lupustheme_allowed_block_types( $allowed_block_types, $block_editor_con
         'yoast/faq-block',
         'yoast/how-to-block',
         'lupus-plugin/header',
+        'lupus-plugin/horizontal-scroll',
         'lupus-plugin/section',
         'lupus-plugin/subtitle'
 	);
