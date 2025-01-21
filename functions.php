@@ -162,6 +162,66 @@ function lupustheme_customize_register( $wp_customize ) {
     );
 
     $wp_customize->add_setting(
+        'nav_text_transform',
+        array(
+            'default' => 'none'
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'nav_text_transform',
+            array(
+                'label' => 'Navigation Text Transform',
+                'type' => 'radio',
+                'choices'   => array(
+                    'none' => 'None',
+                    'capitalize' => 'Capitalize (Transforms the first character of each word to uppercase)',
+                    'uppercase' => 'Uppercase',
+                    'lowercase' => 'Lowercase',
+                ),
+                'description' => 'Determines the text transform of the navigation.',
+                'section' => 'fonts',
+                'settings' => 'nav_text_transform',
+            )
+        )
+    );
+
+    if ( ! function_exists( 'is_plugin_active' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+
+    if ( is_plugin_active( 'lupus-plugin/lupus-plugin.php' ) ) {
+
+        $wp_customize->add_setting(
+            'subtitle_text_transform',
+            array(
+                'default' => 'none'
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'subtitle_text_transform',
+                array(
+                    'label' => 'Subtitle Text Transform',
+                    'type' => 'radio',
+                    'choices'   => array(
+                        'none' => 'None',
+                        'capitalize' => 'Capitalize (Transforms the first character of each word to uppercase)',
+                        'uppercase' => 'Uppercase',
+                        'lowercase' => 'Lowercase',
+                    ),
+                    'description' => 'Determines the text transform of subtitles.',
+                    'section' => 'fonts',
+                    'settings' => 'subtitle_text_transform',
+                )
+            )
+        );
+
+    }
+
+    $wp_customize->add_setting(
         'emphasized_text_transform',
         array(
             'default' => 'uppercase'
@@ -180,7 +240,7 @@ function lupustheme_customize_register( $wp_customize ) {
                     'uppercase' => 'Uppercase',
                     'lowercase' => 'Lowercase',
                 ),
-                'description' => 'Determines the text transform of emphasized texts such as subtitles.',
+                'description' => 'Determines the text transform of emphasized texts such as titles.',
                 'section' => 'fonts',
                 'settings' => 'emphasized_text_transform',
             )
@@ -415,6 +475,16 @@ function lupustheme_custom_fonts() {
     foreach ( $custom_fonts_unique as $custom_font ) :
         echo '--' . $custom_font[0] . ': ' . $custom_font[1] . ',"Helvetica Neue",Helvetica,Arial,sans-serif; ';
     endforeach;
+
+    $nav_text_transform = get_theme_mod( 'nav_text_transform' );
+    if ( $nav_text_transform ) {
+        echo '--nav-texttransform: ' . $nav_text_transform . '; ';
+    }
+
+    $subtitle_text_transform = get_theme_mod( 'subtitle_text_transform' );
+    if ( $nav_text_transform ) {
+        echo '--subtitle-texttransform: ' . $subtitle_text_transform . '; ';
+    }
 
     $emphasized_text_transform = get_theme_mod( 'emphasized_text_transform' );
     if ( $emphasized_text_transform ) {

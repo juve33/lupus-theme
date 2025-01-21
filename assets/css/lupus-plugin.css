@@ -73,6 +73,7 @@
     font-size: 1rem;
 }
 
+.wp-block-lupus-plugin-horizontal-scroll__before-after,
 .wp-block-lupus-plugin-section__before-after {
     display: block !important;
 
@@ -92,11 +93,14 @@
     display: none !important;
 }
 
+.wp-block-lupus-plugin-horizontal-scroll__before-after.alternative-colors,
 .wp-block-lupus-plugin-section__before-after.alternative-colors {
     background: fixed var(--primary-color);
 }
 
+.wp-block-lupus-plugin-horizontal-scroll__before-after.alternative-colors::before,
 .wp-block-lupus-plugin-section__before-after.alternative-colors::before,
+.wp-block-lupus-plugin-horizontal-scroll__before-after::after,
 .wp-block-lupus-plugin-section__before-after::after {
     content: '';
 
@@ -104,12 +108,14 @@
     height: .6em;
 }
 
+.wp-block-lupus-plugin-horizontal-scroll__before-after.alternative-colors::before,
 .wp-block-lupus-plugin-section__before-after.alternative-colors::before {
     top: 0;
 
     background: fixed var(--primary-background-color);
 }
 
+.wp-block-lupus-plugin-horizontal-scroll__before-after::after,
 .wp-block-lupus-plugin-section__before-after::after {
     bottom: 0;
 
@@ -118,17 +124,21 @@
 
 @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view(block var(--nav-height-small) 0)) {
+        .wp-block-lupus-plugin-horizontal-scroll__before-after,
         .wp-block-lupus-plugin-section__before-after {
             height: .6em;
 
             overflow: initial;
         }
 
+        .wp-block-lupus-plugin-horizontal-scroll__before-after.alternative-colors,
         .wp-block-lupus-plugin-section__before-after.alternative-colors {
             height: 1.8em;
         }
 
+        .wp-block-lupus-plugin-horizontal-scroll__before-after::before,
         .wp-block-lupus-plugin-section__before-after::before,
+        .wp-block-lupus-plugin-horizontal-scroll__before-after::after,
         .wp-block-lupus-plugin-section__before-after::after {
             left: 0;
             right: 100%;
@@ -137,7 +147,9 @@
             animation-timeline: view(block var(--nav-height-small) 0);
         }
 
+        .wp-block-lupus-plugin-horizontal-scroll__before-after::before,
         .wp-block-lupus-plugin-section__before-after::before,
+        .wp-block-lupus-plugin-horizontal-scroll__before-after:nth-of-type(even)::after,
         .wp-block-lupus-plugin-section__before-after:nth-of-type(even)::after {
             left: unset;
             right: 0;
@@ -145,6 +157,7 @@
             animation-name: scroll-bar-right;
         }
 
+        .wp-block-lupus-plugin-horizontal-scroll__before-after:nth-of-type(even)::before,
         .wp-block-lupus-plugin-section__before-after:nth-of-type(even)::before {
             left: 0;
             right: unset;
@@ -408,7 +421,7 @@
 
     font-family: var(--secondary-font);
     font-weight: bold;
-    text-transform: var(--emphasized-texttransform);
+    text-transform: var(--subtitle-texttransform);
     font-size: inherit !important;
     line-height: 1.5;
 }
@@ -494,38 +507,6 @@
     .image h5:not(.wp-block-lupus-plugin-subtitle+h5)::after,
     .wp-block-lupus-plugin-section .wp-block-lupus-plugin-subtitle::after {
         content: unset;
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .image h2:not(.wp-block-lupus-plugin-subtitle+h2):hover::after,
-    .image h3:not(.wp-block-lupus-plugin-subtitle+h3):hover::after,
-    .image h4:not(.wp-block-lupus-plugin-subtitle+h4):hover::after,
-    .image h5:not(.wp-block-lupus-plugin-subtitle+h5):hover::after,
-    :has(.wp-block-heading:hover)>.wp-block-lupus-plugin-subtitle::after {
-        animation: subtitle-after .4s ease-in-out;
-    }
-}
-
-@keyframes subtitle-after {
-    from {
-        margin-left: .6em;
-    }
-
-    25% {
-        margin-left: calc(10% + .6em);
-    }
-
-    50% {
-        margin-left: .6em;
-    }
-
-    75% {
-        margin-left: calc(5% + .6em);
-    }
-
-    to {
-        margin-left: .6em;
     }
 }
 

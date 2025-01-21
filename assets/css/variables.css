@@ -14,12 +14,12 @@
 
 
 
+    --nav-texttransform: none;
     --emphasized-texttransform: uppercase;
-    --emphasized-letterspacing: 0em;
+    --emphasized-letterspacing: -.03em;
 
 
     --header-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --header-texttransform: uppercase;
 
     --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
     --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -31,7 +31,6 @@
 
 
     --header-font: "FC Sans Pauli Stencil","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --header-texttransform: uppercase;
 
     --main-font: "FC Sans Pauli","Helvetica Neue",Helvetica,Arial,sans-serif;
     --secondary-font: "FC Sans Pauli Italics","Helvetica Neue",Helvetica,Arial,sans-serif;

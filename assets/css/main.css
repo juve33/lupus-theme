@@ -95,7 +95,7 @@ h4,
 h5 {
 	font-family: var(--header-font);
 	font-weight: bold;
-	text-transform: var(--header-texttransform);
+	text-transform: var(--emphasized-texttransform);
 	letter-spacing: var(--emphasized-letterspacing);
 }
 
