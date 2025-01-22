@@ -19,11 +19,11 @@
     --emphasized-letterspacing: -.03em;
 
 
-    --header-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --header-font: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 
     --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --details-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --secondary-font: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --details-font: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 
     /*
     --emphasized-texttransform: none;
