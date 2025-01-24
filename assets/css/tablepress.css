@@ -30,6 +30,11 @@
     color: var(--accent-color);
 }
 
+.trans-pride .tablepress thead {
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+}
+
 .tablepress th,
 .tablepress td {
     padding: .6em 1em !important;
@@ -49,14 +54,19 @@
 
 .alternative-colors .tablepress th:hover,
 .alternative-colors .tablepress th[aria-sort] {
-    background: fixed var(--accent-color) !important;
     color: var(--primary-color) !important;
+    background: fixed var(--accent-color) !important;
 }
 
 .alternative-colors .tablepress thead th:hover,
 .alternative-colors .tablepress thead th[aria-sort] {
     border-top: 2px solid var(--accent-color);
     border-bottom: 2px solid var(--accent-color);
+}
+
+.trans-pride .alternative-colors .tablepress thead th:hover,
+.trans-pride .alternative-colors .tablepress thead th[aria-sort] {
+    border: none;
 }
 
 .dataTables_length,
@@ -98,7 +108,7 @@
     font-weight: bold;
     text-transform: var(--emphasized-texttransform);
 
-    background: var(--primary-background-color);
+    background: fixed var(--primary-background-color);
 }
 
 .alternative-colors .dataTables_length select,
