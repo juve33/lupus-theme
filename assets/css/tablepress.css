@@ -24,16 +24,39 @@
     text-transform: var(--emphasized-texttransform);
 }
 
+.alternative-colors .tablepress thead {
+    background: fixed var(--tertiary-color) !important;
+    border: none;
+    color: var(--accent-color);
+}
+
 .tablepress th,
 .tablepress td {
     padding: .6em 1em !important;
     color: inherit !important;
 }
 
+.alternative-colors .tablepress thead th {
+    border-top: 2px solid var(--tertiary-color);
+    border-bottom: 2px solid var(--tertiary-color);
+}
+
 .tablepress th:hover,
 .tablepress th[aria-sort] {
     color: var(--accent-color) !important;
     background: fixed var(--tertiary-color) !important;
+}
+
+.alternative-colors .tablepress th:hover,
+.alternative-colors .tablepress th[aria-sort] {
+    background: fixed var(--accent-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.alternative-colors .tablepress thead th:hover,
+.alternative-colors .tablepress thead th[aria-sort] {
+    border-top: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .dataTables_length,
@@ -54,6 +77,13 @@
     text-transform: var(--emphasized-texttransform);
 }
 
+.alternative-colors .dataTables_length label,
+.alternative-colors .dataTables_filter label,
+.alternative-colors .dt-length label,
+.alternative-colors .dt-search label {
+    color: inherit;
+}
+
 .dataTables_length select,
 .dataTables_filter input,
 .dt-length select,
@@ -68,7 +98,16 @@
     font-weight: bold;
     text-transform: var(--emphasized-texttransform);
 
-    background: none;
+    background: var(--primary-background-color);
+}
+
+.alternative-colors .dataTables_length select,
+.alternative-colors .dataTables_filter input,
+.alternative-colors .dt-length select,
+.alternative-colors .dt-search input {
+    background: fixed var(--tertiary-color);
+    border: 2px solid var(--tertiary-color);
+    color: var(--accent-color);
 }
 
 .dataTables_length select,
@@ -92,6 +131,13 @@
 
     color: var(--accent-color);
     background: fixed var(--tertiary-color);
+}
+
+.alternative-colors .dataTables_filter input:focus,
+.alternative-colors .dt-search input:focus {
+    background: fixed var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--primary-color);
 }
 
 

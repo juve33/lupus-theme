@@ -150,6 +150,10 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
     color: var(--tertiary-color);
 }
 
+.alternative-colors .simcal-calendar-grid .simcal-event:hover {
+    color: inherit;
+}
+
 
 
 /* LIST */

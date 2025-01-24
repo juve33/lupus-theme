@@ -24,6 +24,10 @@
     text-transform: var(--emphasized-texttransform);
 }
 
+.alternative-colors .wp-block-yoast-faq-block .schema-faq-question {
+    color: inherit !important;
+}
+
 
 
 /* HOW TO */
@@ -53,4 +57,9 @@
     font-weight: bold;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
+}
+
+.alternative-colors .wp-block-yoast-how-to-block .schema-how-to-step::marker,
+.alternative-colors .wp-block-yoast-how-to-block .schema-how-to-step-name {
+    color: inherit !important;
 }
