@@ -83,7 +83,7 @@ main>.wrapper>* {
 	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
 }
 
-.wrapper>header.full-sized:first-child+* {
+.wrapper>header.full-sized:first-child+:not(.overflowing) {
 	scroll-snap-align: start;
 	scroll-margin: var(--nav-height-small) 0 0 !important;
 }
