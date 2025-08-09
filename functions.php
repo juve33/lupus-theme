@@ -41,6 +41,33 @@ add_action('after_setup_theme', 'lupustheme_theme_support');
 
 
 
+function lupustheme_update($transient) {
+    if (!is_object($transient)) {
+        $transient = new stdClass();
+    }
+
+    $theme_slug = 'lupus';
+    $current_version = wp_get_theme($theme_slug)->get('Version');
+    
+    $response = wp_remote_get('https://juve33.github.io/wp-theme-updater/lupus.json');
+
+    if (!is_wp_error($response)) {
+        $body = json_decode(wp_remote_retrieve_body($response));
+        if (($body != NULL) && (version_compare($current_version, $body->version, '<'))) {
+            $transient->response[$theme_slug] = array(
+                'theme'       => $theme_slug,
+                'new_version' => $body->version,
+                'package'     => $body->download_url
+            );
+        }
+    }
+    return $transient;
+}
+
+add_filter('site_transient_update_themes', 'lupustheme_update');
+
+
+
 function lupustheme_empty_navigation() {
 
     echo '<ul class="navigation"></ul>';
@@ -693,16 +720,16 @@ function lupustheme_register_styles() {
     }
     
     $plugin_stylesheets = array(
-        array( 'lupus-plugin', 'lupus-plugin.css', 'lupus-plugin/lupus-plugin.php' ),
-        array( 'simple-calendar', 'simple-calendar.css', 'google-calendar-events/google-calendar-events.php' ),
-        array( 'tablepress', 'tablepress.css', 'tablepress/tablepress.php' ),
-        array( 'translatepress', 'translatepress.css', 'translatepress-multilingual/index.php' ),
-        array( 'yoast', 'yoast.css', 'wordpress-seo/wp-seo.php' ),
+        array( 'lupus-plugin', 'lupus-plugin/lupus-plugin.php' ),
+        array( 'simple-calendar', 'google-calendar-events/google-calendar-events.php' ),
+        array( 'tablepress', 'tablepress/tablepress.php' ),
+        array( 'translatepress', 'translatepress-multilingual/index.php' ),
+        array( 'yoast', 'wordpress-seo/wp-seo.php' ),
     );
 
     foreach ( $plugin_stylesheets as $plugin_stylesheet ) :
-        if ( is_plugin_active( $plugin_stylesheet[2] ) ) {
-            wp_enqueue_style( 'lupustheme-' . $plugin_stylesheet[0], get_template_directory_uri() . '/assets/css/' . $plugin_stylesheet[1], array(), $version, 'all' );
+        if ( is_plugin_active( $plugin_stylesheet[1] ) ) {
+            wp_enqueue_style( 'lupustheme-' . $plugin_stylesheet[0], get_template_directory_uri() . '/assets/css/' . $plugin_stylesheet[0] . '.css', array(), $version, 'all' );
         }
     endforeach;
 
