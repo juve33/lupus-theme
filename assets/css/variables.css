@@ -10,7 +10,7 @@
     --accent-color: #fff;
     --primary-background-color: #fff;
 
-    --wordpress-support-bar: 0px;
+    --wordpress-support-bar:  var(--wp-admin--admin-bar--height, 0px);
 
 
 
@@ -38,10 +38,6 @@
     */
 }
 
-.customize-support {
-    --wordpress-support-bar: 32px;
-}
-
 @media (min-width: 768px) {
     :root {
         --nav-height-big: 128px;
@@ -52,12 +48,6 @@
 @media (min-width: 992px) {
     :root {
         --nav-height-small: 64px;
-    }
-}
-
-@media (max-width: 782px) {
-    .customize-support {
-        --wordpress-support-bar: 46px;
     }
 }
 
