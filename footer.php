@@ -22,10 +22,10 @@
                     $socialmedias = array(
                         array('Facebook', 'facebook', 'fa-brands fa-facebook-f'),
                         array('Instagram', 'instagram', 'fab fa-instagram fa-fw'),
-                        array('Tiktok', 'tiktok', 'fab fa-tiktok fa-fw'),
+                        array('TikTok', 'tiktok', 'fab fa-tiktok fa-fw'),
                         array('X', 'x', 'fab fa-x-twitter fa-fw'),
                         array('Threads', 'threads', 'fab fa-threads fa-fw'),
-                        array('Github', 'github', 'fab fa-github fa-fw'),
+                        array('GitHub', 'github', 'fab fa-github fa-fw'),
                     );
                 ?>
                 <?php foreach ($socialmedias as $socialmedia) : ?>

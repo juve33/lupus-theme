@@ -60,7 +60,7 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
     background: fixed var(--tertiary-color);
 
     font-family: var(--secondary-font);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
 }
@@ -116,7 +116,7 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
     background: none !important;
 
     font-family: var(--secondary-font);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
 }
@@ -190,7 +190,7 @@ div .alternative-colors .simcal-nav .simcal-nav-button:hover {
     background: none !important;
 
     font-family: var(--secondary-font);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
 }

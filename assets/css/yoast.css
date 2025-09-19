@@ -19,7 +19,7 @@
 .wp-block-yoast-faq-block .schema-faq-question {
     color: var(--tertiary-color) !important;
     font-family: var(--secondary-font);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
 }
@@ -54,7 +54,7 @@
 .wp-block-yoast-how-to-block .schema-how-to-step-name {
     color: var(--tertiary-color) !important;
     font-family: var(--secondary-font);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1em;
     text-transform: var(--emphasized-texttransform);
 }

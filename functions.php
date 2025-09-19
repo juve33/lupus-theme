@@ -380,10 +380,10 @@ function lupustheme_customize_register( $wp_customize ) {
     $socials = array(
         array( 'Facebook', 'facebook_link', 'https://www.facebook.com/' ),
         array( 'Instagram', 'instagram_link', 'https://www.instagram.com/' ),
-        array( 'Tiktok', 'tiktok_link', 'https://www.tiktok.com/' ),
+        array( 'TikTok', 'tiktok_link', 'https://www.tiktok.com/' ),
         array( 'X', 'x_link', 'https://www.x.com/' ),
         array( 'Threads', 'threads_link', 'https://www.threads.net/' ),
-        array( 'Github', 'github_link', 'https://www.github.com/' ),
+        array( 'GitHub', 'github_link', 'https://www.github.com/' ),
     );
 
     foreach ( $socials as $social ) :
@@ -409,10 +409,6 @@ function lupustheme_customize_register( $wp_customize ) {
 }
 
 add_action('customize_register', 'lupustheme_customize_register');
-
-
-
-remove_action( 'wp_head', '_wp_render_title_tag', 1 );
 
 
 
@@ -696,19 +692,19 @@ add_action( 'init', 'lupustheme_register_pattern_categories' );
 
 function lupustheme_register_styles() {
 
-    $version = wp_get_theme()->get( 'Version' );
+    $version = wp_get_theme( get_template() )->get( 'Version' );
     
     $stylesheets = array(
-        array( 'main', 'main.css' ),
-        array( 'variables', 'variables.css' ),
-        array( 'nav', 'nav.css' ),
-        array( 'blocks', 'blocks.css' ),
-        array( 'general-classes', 'general-classes.css' ),
-        array( 'footer', 'footer.css' ),
+        'main',
+        'variables',
+        'nav',
+        'blocks',
+        'general-classes',
+        'footer',
     );
 
     foreach ( $stylesheets as $stylesheet ) :
-        wp_enqueue_style( 'lupustheme-' . $stylesheet[0], get_template_directory_uri() . '/assets/css/' . $stylesheet[1], array(), $version, 'all' );
+        wp_enqueue_style( 'lupustheme-' . $stylesheet, get_template_directory_uri() . '/assets/css/' . $stylesheet. '.css', array(), $version, 'all' );
     endforeach;
 
     wp_enqueue_style( 'lupustheme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all' );
@@ -741,15 +737,15 @@ add_action('wp_enqueue_scripts', 'lupustheme_register_styles');
 
 function lupustheme_register_scripts() {
 
-    $version = wp_get_theme()->get( 'Version' );
+    $version = wp_get_theme( get_template() )->get( 'Version' );
     wp_enqueue_script( 'lupustheme-jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', array(), '3.4.1', true );
 
     $scripts = array(
-        array( 'main', 'main.js' ),
+        'main',
     );
 
     foreach ( $scripts as $script ) :
-        wp_enqueue_script( 'lupustheme-' . $script[0], get_template_directory_uri() . '/assets/js/' . $script[1], array(), $version, true );
+        wp_enqueue_script( 'lupustheme-' . $script, get_template_directory_uri() . '/assets/js/' . $script . '.js', array(), $version, true );
     endforeach;
 
 }

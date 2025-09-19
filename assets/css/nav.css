@@ -193,7 +193,7 @@
 .navigation li,
 .hamburger-menu li {
 	font-family: var(--secondary-font);
-	font-weight: bold;
+	font-weight: 900;
 	text-transform: var(--nav-texttransform);
 }
 

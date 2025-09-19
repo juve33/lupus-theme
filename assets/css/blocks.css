@@ -92,9 +92,9 @@
     transform: rotate(180deg);
 }
 
-.wp-block-details summary,
-.wp-block-details p,
-.wp-block-details * {
+.wp-block-details>summary,
+.wp-block-details>p,
+.wp-block-details>* {
     padding-inline: 1em;
 }
 
@@ -543,34 +543,6 @@ ul.wp-block-list li::marker {
     font-size: 1.25rem;
     color: var(--primary-color);
     vertical-align: middle;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .wp-block-quote:hover p {
-        animation: quote-hover .4s ease-in-out;
-    }
-}
-
-@keyframes quote-hover {
-    from {
-        scale: 1;
-    }
-
-    25% {
-        scale: 1.05;
-    }
-
-    50% {
-        scale: 1;
-    }
-
-    75% {
-        scale: 1.025;
-    }
-
-    to {
-        scale: 1;
-    }
 }
 
 .wp-block-quote p::before,
